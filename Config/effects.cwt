@@ -725,6 +725,29 @@ alias[effect:transfer_state] = scope[state]
 ## scope = country
 alias[effect:transfer_state] = <state>
 
+
+### Set owner and controller of state.
+## scope = state
+alias[effect:transfer_state_to] = scope[country]
+### Set owner and controller of state.
+## scope = state
+alias[effect:transfer_state_to] = enum[country_tags]
+
+### Set owner of state.
+## scope = state
+alias[effect:set_state_owner_to] = scope[country]
+### Set owner of state.
+## scope = state
+alias[effect:set_state_owner_to] = enum[country_tags]
+
+### Set controller of state.
+## scope = state
+alias[effect:set_state_controller_to] = scope[country]
+### Set controller of state.
+## scope = state
+alias[effect:set_state_controller_to] = enum[country_tags]
+
+
 ### Set state flag.
 ## scope = state
 alias[effect:set_state_flag] = value_set[state_flag]

@@ -310,6 +310,21 @@
 			"supported_target":	["none"],
 			"description":	"set owner and controller for state"
 		},
+		"transfer_state_to":	{
+			"supported_scope":	["STATE"],
+			"supported_target":	["none"],
+			"description":	"set owner and controller of state"
+		},
+		"set_state_owner_to":	{
+			"supported_scope":	["STATE"],
+			"supported_target":	["none"],
+			"description":	"set owner of state"
+		},
+		"set_state_controller_to":	{
+			"supported_scope":	["STATE"],
+			"supported_target":	["none"],
+			"description":	"set controller of state"
+		},
 		"set_state_flag":	{
 			"supported_scope":	["STATE"],
 			"supported_target":	["none"],
