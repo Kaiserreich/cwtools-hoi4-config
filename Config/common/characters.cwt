@@ -1,0 +1,153 @@
+types = {
+	type[character] = {
+		path = "game/common/characters"
+	}
+}
+
+## replace_scope = { this = country root = country }
+character = {
+	## cardinality = ~1..inf
+	scalar = {
+		## cardinality = 0..1
+		name = localisation
+		## cardinality = ~1..1
+		portraits = {
+			## cardinality = 0..1
+			civilian = {
+				## cardinality = 0..1
+				large = scalar
+				## cardinality = 0..1
+				small = scalar
+			}
+			## cardinality = 0..1
+			army = {
+				## cardinality = 0..1
+				large = scalar
+				## cardinality = 0..1
+				small = scalar
+			}
+			## cardinality = 0..1
+			navy = {
+				## cardinality = 0..1
+				large = scalar
+				## cardinality = 0..1
+				small = scalar
+			}
+		}
+		## cardinality = 0..inf
+		country_leader = {
+			## cardinality = 0..1
+			desc = localisation
+			## cardinality = ~1..1
+			ideology = enum[sub_ideology]
+			## cardinality = 0..1
+			female = bool
+		}
+		## cardinality = 0..1
+		field_marshal = {
+			## cardinality = 0..1
+			desc = localisation
+			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+			traits = {
+				## cardinality = 0..inf
+				<unit_leader_trait>
+			}
+			## cardinality = ~1..1
+			skill = int
+			## cardinality = ~1..1
+			attack_skill = int
+			## cardinality = ~1..1
+			defense_skill = int
+			## cardinality = ~1..1
+			planning_skill = int
+			## cardinality = ~1..1
+			logistics_skill = int
+			## cardinality = 0..1
+			id = value_set[unit_leader_ids]
+			## cardinality = 0..1
+			female = bool
+		}
+		## cardinality = 0..1
+		corps_commander = {
+			## cardinality = 0..1
+			desc = localisation
+			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+			traits = {
+				## cardinality = 0..inf
+				<unit_leader_trait>
+			}
+			## cardinality = ~1..1
+			skill = int
+			## cardinality = ~1..1
+			attack_skill = int
+			## cardinality = ~1..1
+			defense_skill = int
+			## cardinality = ~1..1
+			planning_skill = int
+			## cardinality = ~1..1
+			logistics_skill = int
+			## cardinality = 0..1
+			id = value_set[unit_leader_ids]
+			## cardinality = 0..1
+			female = bool
+		}
+		## cardinality = 0..1
+		navy_leader = {
+			## cardinality = 0..1
+			desc = localisation
+			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+			traits = {
+				## cardinality = 0..inf
+				<unit_leader_trait>
+			}
+			## cardinality = ~1..1
+			skill = int
+			## cardinality = ~1..1
+			attack_skill = int
+			## cardinality = ~1..1
+			defense_skill = int
+			## cardinality = ~1..1
+			maneuvering_skill = int
+			## cardinality = ~1..1
+			coordination_skill = int
+			## cardinality = 0..1
+			id = value_set[unit_leader_ids]
+			## cardinality = 0..1
+			female = bool
+		}
+		## cardinality = 0..inf
+		advisor = {
+			## cardinality = ~1..1
+			slot = scalar
+			## cardinality = ~1..1
+			idea_token = scalar
+			## cardinality = 0..1
+			ledger = scalar
+			## cardinality = ~1..1
+			traits = {
+				## cardinality = 0..inf
+				scalar
+			}
+			## cardinality = 0..1
+			cost = int
+			## cardinality = 0..1
+			removal_cost = int
+			## cardinality = 0..1
+			ai_will_do = {
+				## cardinality = 0..1
+				factor = int
+			}
+		}
+	}
+}
+
+
+enums = {
+	# characters
+	complex_enum[characters] = {
+		path = "game/common/characters"
+		name = {
+			enum_name = scalar
+		}
+	}
+}
