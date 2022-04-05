@@ -41,6 +41,10 @@ character = {
 			## cardinality = ~1..1
 			ideology = enum[sub_ideology]
 			## cardinality = 0..1
+			traits = {
+				<country_leader_trait>
+			}
+			## cardinality = 0..1
 			female = bool
 		}
 		## cardinality = 0..1
@@ -121,6 +125,16 @@ character = {
 			slot = scalar
 			## cardinality = ~1..1
 			idea_token = scalar
+			## cardinality = 0..inf
+			allowed = {
+				## cardinality = ~1..inf
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			## cardinality = 0..inf
+			available = {
+				## cardinality = ~1..inf
+				alias_name[trigger] = alias_match_left[trigger]
+			}
 			## cardinality = 0..1
 			ledger = scalar
 			## cardinality = ~1..1
@@ -143,11 +157,13 @@ character = {
 
 
 enums = {
-	# characters
 	complex_enum[characters] = {
 		path = "game/common/characters"
 		name = {
-			enum_name = scalar
+			scalar = {
+				enum_name = {
+				}
+			}
 		}
 	}
 }

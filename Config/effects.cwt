@@ -3193,3 +3193,106 @@ alias[effect:retire_ideology_leader] = variable_field
 
 ## scope = country
 alias[effect:play_song] = scalar
+
+
+## scope = country
+alias[effect:recruit_character] = enum[characters]
+
+
+## scope = any
+alias[effect:add_corps_commander_role] = {
+	## cardinality = ~1..1
+	character = enum[characters]
+	## cardinality = 0..1
+	desc = localisation
+	### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+	traits = {
+		## cardinality = 0..inf
+		<unit_leader_trait>
+	}
+	## cardinality = ~1..1
+	skill = int
+	## cardinality = ~1..1
+	attack_skill = int
+	## cardinality = ~1..1
+	defense_skill = int
+	## cardinality = ~1..1
+	planning_skill = int
+	## cardinality = ~1..1
+	logistics_skill = int
+	## cardinality = 0..1
+	id = value_set[unit_leader_ids]
+	## cardinality = 0..1
+	female = bool
+}
+
+## scope = any
+alias[effect:add_field_marshal_role] = {
+	## cardinality = ~1..1
+	character = enum[characters]
+	## cardinality = 0..1
+	desc = localisation
+	### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+	traits = {
+		## cardinality = 0..inf
+		<unit_leader_trait>
+	}
+	## cardinality = ~1..1
+	skill = int
+	## cardinality = ~1..1
+	attack_skill = int
+	## cardinality = ~1..1
+	defense_skill = int
+	## cardinality = ~1..1
+	planning_skill = int
+	## cardinality = ~1..1
+	logistics_skill = int
+	## cardinality = 0..1
+	id = value_set[unit_leader_ids]
+	## cardinality = 0..1
+	female = bool
+}
+
+## scope = any
+alias[effect:add_naval_commander_role] = {
+	## cardinality = ~1..1
+	character = enum[characters]
+	## cardinality = 0..1
+	desc = localisation
+	### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+	traits = {
+		## cardinality = 0..inf
+		<unit_leader_trait>
+	}
+	## cardinality = ~1..1
+	skill = int
+	## cardinality = ~1..1
+	attack_skill = int
+	## cardinality = ~1..1
+	defense_skill = int
+	## cardinality = ~1..1
+	maneuvering_skill = int
+	## cardinality = ~1..1
+	coordination_skill = int
+	## cardinality = 0..1
+	id = value_set[unit_leader_ids]
+	## cardinality = 0..1
+	female = bool
+}
+
+## scope = any
+alias[effect:add_country_leader_role] = {
+	## cardinality = ~1..1
+	character = enum[characters]
+
+}
+
+## scope = any
+alias[effect:add_advisor_role] = {
+	## cardinality = ~1..1
+	character = enum[characters]
+
+}
+
+## scope = country
+alias[effect:promote_character] = enum[characters]

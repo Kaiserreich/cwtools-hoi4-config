@@ -2218,3 +2218,11 @@ alias[trigger:has_intelligence_agency] = bool
 ### Is impassable state
 ## scope = state
 alias[trigger:impassable] = bool
+
+
+
+## scope = country
+alias[trigger:is_character] = enum[characters]
+
+## scope = country
+alias[trigger:has_character] = enum[characters]
