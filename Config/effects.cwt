@@ -19,6 +19,14 @@ alias[effect:set_capital] = scope[state]
 ### Move capital to state.
 ## scope = country
 alias[effect:set_capital] = <state>
+### Move capital to state.
+## scope = country
+alias[effect:set_capital] = {
+	state = scope[state]
+	state = <state>
+	## cardinality = 0..1
+	remember_old_capital = bool
+}
 
 ### Add core on state.
 ## scope = country
