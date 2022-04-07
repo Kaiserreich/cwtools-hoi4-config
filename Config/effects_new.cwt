@@ -1073,3 +1073,13 @@ alias[effect:remove_wargoal] = {
 	type = <wargoal>
 	type = all
 }
+
+###Adds doctrine cost reduction bonus
+## scopes = { country }
+alias[effect:add_doctrine_cost_reduction] = {
+	name = localisation
+	cost_reduction = float[0.01..0.99]
+	uses = int[1..99]
+	## cardinality = 1..inf
+	category = enum[tech_category]
+}
