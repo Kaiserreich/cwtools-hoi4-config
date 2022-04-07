@@ -3204,7 +3204,7 @@ alias[effect:play_song] = scalar
 
 
 ## scope = country
-alias[effect:recruit_character] = enum[characters]
+alias[effect:recruit_character] = <character_id>
 
 
 ## scope = any
