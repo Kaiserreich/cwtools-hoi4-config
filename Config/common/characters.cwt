@@ -2,6 +2,10 @@ types = {
 	type[character] = {
 		path = "game/common/characters"
 	}
+	type[character_id] = {
+		skip_root_key = characters
+		path = "game/common/characters"
+	}
 }
 
 ## replace_scope = { this = country root = country }
@@ -51,6 +55,7 @@ character = {
 		field_marshal = {
 			## cardinality = 0..1
 			desc = localisation
+			## cardinality = 0..1
 			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
 			traits = {
 				## cardinality = 0..inf
@@ -75,7 +80,8 @@ character = {
 		corps_commander = {
 			## cardinality = 0..1
 			desc = localisation
-			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+			## cardinality = 0..1
+			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.	
 			traits = {
 				## cardinality = 0..inf
 				<unit_leader_trait>
@@ -99,7 +105,8 @@ character = {
 		navy_leader = {
 			## cardinality = 0..1
 			desc = localisation
-			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
+			## cardinality = 0..1
+			### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.	
 			traits = {
 				## cardinality = 0..inf
 				<unit_leader_trait>
