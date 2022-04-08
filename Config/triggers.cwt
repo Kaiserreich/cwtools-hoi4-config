@@ -2199,7 +2199,10 @@ alias[trigger:impassable] = bool
 
 
 ## scope = country
-alias[trigger:is_character] = enum[characters]
+alias[trigger:is_character] = <character_id>
 
 ## scope = country
 alias[trigger:has_character] = <character_id>
+
+## scope = country
+alias[trigger:can_be_country_leader] = <character_id>

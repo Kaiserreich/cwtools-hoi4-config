@@ -487,6 +487,9 @@ decision = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 
+		## cardinality = 0..1
+		target_non_existing = bool
+
 		## cardinality = 0..inf
 		alias_name[targeted_modifier_rule] = alias_match_left[targeted_modifier_rule]
 
