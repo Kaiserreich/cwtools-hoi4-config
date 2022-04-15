@@ -2198,11 +2198,91 @@ alias[trigger:impassable] = bool
 
 
 
-## scope = country
+### Checks if the current character's token matches up with the specified one
+## scope = character
 alias[trigger:is_character] = <character_id>
+
+### Checks if the character in the current scope has a country leader role, active or non-active
+## scope = character
+alias[trigger:can_be_country_leader] = bool
+
+### Checks if the character in the current scope is the active country leader
+## scope = character
+alias[trigger:is_country_leader] = bool
+
+## scope = character
+alias[trigger:is_unit_leader] = bool
+
+## scope = character
+alias[trigger:is_advisor] = bool
+
+## scope = character
+alias[trigger:is_air_chief] = bool
+
+## scope = character
+alias[trigger:is_army_chief] = bool
+
+## scope = character
+alias[trigger:is_army_leader] = bool
+
+## scope = character
+alias[trigger:is_navy_chief] = bool
+
+## scope = character
+alias[trigger:is_navy_leader] = bool
+
+## scope = character
+alias[trigger:is_high_command] = bool
+
+## scope = character
+alias[trigger:is_corps_commander] = bool
+
+## scope = character
+alias[trigger:is_operative] = bool
+
+## scope = character
+alias[trigger:is_political_advisor] = bool
+
+## scope = character
+alias[trigger:is_theorist] = bool
+
+## scope = character
+alias[trigger:is_character_slot] = scalar
+
+## scope = character
+alias[trigger:has_air_ledger] = bool
+
+## scope = character
+alias[trigger:has_army_ledger] = bool
+
+## scope = character
+alias[trigger:has_navy_ledger] = bool
+
+### Has state flag been setCheck flag val date set and days since set.
+## scope = character
+## severity = warning
+alias[trigger:has_character_flag] = value[character_flag]
+
+### Has state flag been setCheck flag val date set and days since set.
+## scope = character
+## severity = warning
+alias[trigger:has_character_flag] = {
+	flag = value[character_flag]
+	## cardinality = 0..1
+	value = int
+	## cardinality = 0..1
+	date = date_field
+	## cardinality = 0..1
+	days = int
+}
+
+## scope = character
+alias[trigger:not_already_hired_except_as] = scalar
+
+## scope = country
+alias[trigger:can_be_country_leader] = <character_id>
 
 ## scope = country
 alias[trigger:has_character] = <character_id>
 
-## scope = country
-alias[trigger:can_be_country_leader] = <character_id>
+

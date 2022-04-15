@@ -3204,15 +3204,59 @@ alias[effect:retire_ideology_leader] = variable_field
 ## scope = country
 alias[effect:play_song] = scalar
 
+###
+### NEW NSB EFFECTS
+###
 
 ## scope = country
-alias[effect:recruit_character] = <character_id>
+alias[effect:activate_advisor] = <character_id>
 
+## scope = country
+alias[effect:deactivate_advisor] = <character_id>
+
+## scope = any
+alias[effect:add_country_leader_role] = {
+	## cardinality = ~1..1
+	character = <character_id>
+	## cardinality = ~1..1
+	country_leader = {
+		## cardinality = ~1..1
+		ideology = <ideology>
+		## cardinality = 0..1
+		expire = scalar
+		## cardinality = 0..1
+		traits = {
+			## cardinality = 0..inf
+			<country_leader_trait>
+		}
+	}
+	## cardinality = 0..1
+	promote_leader = bool
+}
+
+## scope = any
+alias[effect:add_advisor_role] = {
+	character = <character_id>
+	advisor = {
+		slot = scalar
+		cost = int
+		idea_token = <character_id>
+		## cardinality = 0..1
+		traits = {
+			## cardinality = 0..inf
+			<country_leader_trait>
+		}
+		## cardinality = 0..1
+		allowed = { always = bool }
+	}
+	## cardinality = 0..1
+	activate = bool
+}
 
 ## scope = any
 alias[effect:add_corps_commander_role] = {
 	## cardinality = ~1..1
-	character = enum[characters]
+	character = <character_id>
 	## cardinality = 0..1
 	desc = localisation
 	### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
@@ -3239,7 +3283,7 @@ alias[effect:add_corps_commander_role] = {
 ## scope = any
 alias[effect:add_field_marshal_role] = {
 	## cardinality = ~1..1
-	character = enum[characters]
+	character = <character_id>
 	## cardinality = 0..1
 	desc = localisation
 	### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
@@ -3266,7 +3310,7 @@ alias[effect:add_field_marshal_role] = {
 ## scope = any
 alias[effect:add_naval_commander_role] = {
 	## cardinality = ~1..1
-	character = enum[characters]
+	character = <character_id>
 	## cardinality = 0..1
 	desc = localisation
 	### Sets starting traits for this leader. If empty, sets no traits. If missing, assigns a random trait.
@@ -3291,23 +3335,134 @@ alias[effect:add_naval_commander_role] = {
 }
 
 ## scope = any
-alias[effect:add_country_leader_role] = {
-	## cardinality = ~1..1
+alias[effect:add_trait] = {
 	character = <character_id>
-	country_leader = { ideology = <ideology> }
-	promote_leader = yes
+	slot = scalar
+	trait = <country_leader_trait>
 }
 
 ## scope = any
-alias[effect:add_advisor_role] = {
-	## cardinality = ~1..1
-	character = enum[characters]
-
+alias[effect:remove_trait] = {
+	character = <character_id>
+	slot = scalar
+	trait = <country_leader_trait>
 }
+
+## scope = any
+alias[effect:remove_country_leader_role] = {
+	character = <character_id>
+	slot = scalar
+}
+
+## scope = any
+alias[effect:remove_advisor_role] = {
+	character = <character_id>
+	slot = scalar
+}
+
+## scope = character
+alias[effect:remove_unit_leader_role] = bool
+
+## scope = character
+alias[effect:retire_character] = <character_id>
+
+## scope = country
+alias[effect:recruit_character] = <character_id>
+
+### promote a character
+## scope = character
+alias[effect:promote_character] = bool
+## scope = character
+alias[effect:promote_character] = <ideology>
+## scope = character
+alias[effect:promote_character] = { ideology = <ideology> }
 
 ## scope = country
 alias[effect:promote_character] = <character_id>
+## scope = country
+alias[effect:promote_character] = {
+	character = <character_id>
+	ideology = <ideology>
+}
 
+## scope = any
+alias[effect:create_entity] = { }
+
+## scope = any
+alias[effect:destroy_entity] = { }
+
+## scope = any
+alias[effect:set_entity_movement] = { }
+
+## scope = any
+alias[effect:set_entity_position] = { }
+
+## scope = any
+alias[effect:set_entity_rotation] = { }
+
+## scope = any
+alias[effect:set_entity_scale] = { }
+
+## scope = any
+alias[effect:set_entity_animation] = { }
 
 ## scope = country
-alias[trigger:retire_character] = <character_id>
+alias[effect:uncomplete_national_focus] = {
+	## cardinality = ~1..1
+	focus = <focus>
+	## cardinality = 0..1
+	uncomplete_children = bool
+	## cardinality = 0..1
+	refund_political_power = bool
+}
+
+## scope = country
+alias[effect:build_railway] = { }
+
+### Set character flag.
+## scope = character
+alias[effect:set_character_flag] = value_set[character_flag]
+
+### you should use variables instead
+## scope = character
+## severity = warning
+alias[effect:set_character_flag] = {
+	flag = value[character_flag]
+	## cardinality = 0..1
+	value = int
+	## cardinality = 0..1
+	date = date_field
+	## cardinality = 0..1
+	days = int
+}
+
+### you should use variables instead
+## scope = character
+## severity = warning
+alias[effect:modify_character_flag] = {
+	flag = value[character_flag]
+	value = int
+}
+
+## scope = character
+alias[effect:clr_character_flag] = value[character_flag]
+
+
+
+### Executes children effects on random character that fulfills the "limit" trigger.
+## scope = any
+## push_scope = character
+alias[effect:random_character] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<character>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}

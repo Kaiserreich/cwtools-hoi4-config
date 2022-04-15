@@ -14,6 +14,8 @@ character = {
 	scalar = {
 		## cardinality = 0..1
 		name = localisation
+		## cardinality = 0..1
+		gender = female
 		## cardinality = ~1..1
 		portraits = {
 			## cardinality = 0..1
@@ -132,22 +134,38 @@ character = {
 			slot = scalar
 			## cardinality = ~1..1
 			idea_token = scalar
-			## cardinality = 0..inf
+			## cardinality = 0..1
 			allowed = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-			## cardinality = 0..inf
+			## cardinality = 0..1
 			available = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			## cardinality = 0..1
+			on_add = {
+				## cardinality = ~1..inf
+				alias_name[effect] = alias_match_left[effect]
+			}
+			## cardinality = 0..1
 			ledger = scalar
 			## cardinality = ~1..1
 			traits = {
+				## cardinality = ~1..inf
+				<country_leader_trait>
+			}
+			## cardinality = 0..1
+			## push_scope = country
+			modifier = {
+				## cardinality = ~1..inf
+				alias_name[modifier] = alias_match_left[modifier]
+			}
+			## cardinality = 0..1
+			research_bonus = {
 				## cardinality = 0..inf
-				scalar
+				enum[tech_category] = float
 			}
 			## cardinality = 0..1
 			cost = int
