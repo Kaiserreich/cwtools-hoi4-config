@@ -440,6 +440,11 @@ modifiers = {
 	winter_attrition = country
 	winter_attrition_factor = country
 
+	land_doctrine_cost_factor = country
+	air_doctrine_cost_factor = country
+	naval_doctrine_cost_factor = country
+	supply_node_range = country
+
 	# State
 	army_speed_factor_for_controller = state
 	attrition_for_controller = state

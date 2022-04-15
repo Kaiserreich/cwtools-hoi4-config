@@ -235,7 +235,6 @@ alias[effect:every_enemy_country] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-
 ### Executes children effects on random enemy country that fulfills the "limit" trigger.
 ## scope = country
 ## push_scope = country
@@ -243,6 +242,167 @@ alias[effect:random_enemy_country] = {
 	## cardinality = 0..1
 	limit = {
 		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### New NSB/LaR effects
+
+### Executes children effects on every subject country that fulfills the "limit" trigger.
+## scope = country
+## push_scope = country
+alias[effect:every_subject_country] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on random subject country that fulfills the "limit" trigger.
+## scope = country
+## push_scope = country
+alias[effect:random_subject_country] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<country>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on every core state that fulfills the "limit" trigger.
+## scope = country
+## push_scope = state
+alias[effect:every_core_state] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on random core state that fulfills the "limit" trigger.
+## scope = country
+## push_scope = state
+alias[effect:random_core_state] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<state>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on every country with the specified original tag that fulfills the "limit" trigger.
+## scope = country
+## push_scope = country
+alias[effect:every_country_with_original_tag] = {
+	## cardinality = ~1..1
+	original_tag_to_check = <country>
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on random country with the specified original tag that fulfills the "limit" trigger.
+## scope = country
+## push_scope = country
+alias[effect:random_country_with_original_tag] = {
+	## cardinality = ~1..1
+	original_tag_to_check = <country>
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<country>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on every occupied country that fulfills the "limit" trigger.
+## scope = country
+## push_scope = country
+alias[effect:every_occupied_country] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on random occupied country that fulfills the "limit" trigger.
+## scope = country
+## push_scope = country
+alias[effect:random_occupied_country] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<country>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on every controlled state that fulfills the "limit" trigger.
+## scope = country
+## push_scope = state
+alias[effect:every_controlled_state] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on random controlled state that fulfills the "limit" trigger.
+## scope = country
+## push_scope = state
+alias[effect:random_controlled_state] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<state>
 	}
 	## cardinality = 0..1
 	tooltip = localisation
@@ -911,6 +1071,25 @@ alias[effect:random_owned_state] = {
 }
 
 
+### Executes children effects on random controlled state that fulfills the "limit" trigger.
+## scope = country
+## push_scope = state
+alias[effect:random_controlled_state] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<state>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+
 ### Executes children effects on random neighbor state that fulfills the "limit" trigger.
 ## scope = state
 ## push_scope = state
@@ -1506,6 +1685,8 @@ alias[effect:create_equipment_variant] = {
 		## cardinality = 0..inf
 		enum[module_slots] = empty
 	}
+	## cardinality = 0..1
+	icon = filepath
 	## cardinality = 0..1
 	obsolete = yes
 }
@@ -3347,11 +3528,27 @@ alias[effect:remove_trait] = {
 	slot = scalar
 	trait = <country_leader_trait>
 }
+## scope = character
+alias[effect:remove_trait] = {
+	slot = scalar
+	trait = <country_leader_trait>
+}
+## scope = any
+alias[effect:remove_trait] = {
+	character = <character_id>
+	ideology = <ideology>
+	trait = <country_leader_trait>
+}
+## scope = character
+alias[effect:remove_trait] = {
+	ideology = <ideology>
+	trait = <country_leader_trait>
+}
 
 ## scope = any
 alias[effect:remove_country_leader_role] = {
 	character = <character_id>
-	slot = scalar
+	ideology = <ideology>
 }
 
 ## scope = any
@@ -3416,8 +3613,45 @@ alias[effect:uncomplete_national_focus] = {
 	refund_political_power = bool
 }
 
+### builds railway from start_province to target_province
 ## scope = country
-alias[effect:build_railway] = { }
+alias[effect:build_railway] = {
+	## cardinality = ~1..1
+	start_province = enum[provinces]
+	## cardinality = ~1..1
+	target_province = enum[provinces]
+	## cardinality = 0..1
+	level = int
+	## cardinality = 0..1
+	build_only_on_allied = bool
+	## cardinality = 0..1
+	fallback = bool
+	## cardinality = 0..1
+	path = {
+		## cardinality = ~2..inf
+		enum[provinces]
+	}
+}
+
+### builds railway from start_state to target_state
+## scope = country
+alias[effect:build_railway] = {
+	## cardinality = ~1..1
+	start_state = <state>
+	## cardinality = ~1..1
+	target_state = <state>
+	## cardinality = 0..1
+	level = int
+	## cardinality = 0..1
+	build_only_on_allied = bool
+	## cardinality = 0..1
+	fallback = bool
+	## cardinality = 0..1
+	path = {
+		## cardinality = ~2..inf
+		enum[provinces]
+	}
+}
 
 ### Set character flag.
 ## scope = character
@@ -3448,6 +3682,59 @@ alias[effect:modify_character_flag] = {
 alias[effect:clr_character_flag] = value[character_flag]
 
 
+### Executes children effects on every operative that fulfills the "limit" trigger.
+## scope = any
+## push_scope = character
+alias[effect:every_operative] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<character>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on random operative that fulfills the "limit" trigger.
+## scope = any
+## push_scope = character
+alias[effect:random_operative] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<character>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Executes children effects on every character that fulfills the "limit" trigger.
+## scope = any
+## push_scope = character
+alias[effect:every_character] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	prioritize = {
+		## cardinality = 1..inf
+		<character>
+	}
+	## cardinality = 0..1
+	tooltip = localisation
+	alias_name[effect] = alias_match_left[effect]
+}
 
 ### Executes children effects on random character that fulfills the "limit" trigger.
 ## scope = any
