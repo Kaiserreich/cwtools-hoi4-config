@@ -2643,9 +2643,14 @@ alias[effect:recall_attache] = enum[country_tags]
 alias[effect:activate_targeted_decision] = {
 	target = scope[country]
 	target = enum[country_tags]
-	target = scope[state]
-	target = <state>
 	decision = <decision>
+}
+
+### Activates targeted decisions or mission, ignoring its normal trigger conditions, cooldown and fire only once. Cannot activate if active in interface.
+## scope = country
+alias[effect:activate_targeted_decision] = {
+	target = <state>
+	decision = <decision.state_targeted>
 }
 
 ### Removes targeted decisions or mission.
@@ -2657,6 +2662,8 @@ alias[effect:remove_targeted_decision] = <decision>
 alias[effect:remove_targeted_decision] = {
 	target = scope[country]
 	target = enum[country_tags]
+	target = scope[state]
+	target = <state>
 	decision = <decision>
 }
 
@@ -3248,6 +3255,10 @@ alias[effect:supply_units] = int
 ## scope = country
 alias[effect:set_convoys] = int
 
+### Sets the amount of trains stored.
+## scope = country
+alias[effect:starting_train_buffer] = float
+
 ### Adds strategy entry to country AI.
 ## scope = country
 alias[effect:add_ai_strategy] = {
@@ -3390,10 +3401,10 @@ alias[effect:play_song] = scalar
 ###
 
 ## scope = country
-alias[effect:activate_advisor] = <character_id>
+alias[effect:activate_advisor] = value[advisor_ids]
 
 ## scope = country
-alias[effect:deactivate_advisor] = <character_id>
+alias[effect:deactivate_advisor] = value[advisor_ids]
 
 ## scope = any
 alias[effect:add_country_leader_role] = {
@@ -3402,7 +3413,7 @@ alias[effect:add_country_leader_role] = {
 	## cardinality = ~1..1
 	country_leader = {
 		## cardinality = ~1..1
-		ideology = <ideology>
+		ideology = enum[sub_ideology]
 		## cardinality = 0..1
 		expire = scalar
 		## cardinality = 0..1
@@ -3420,15 +3431,49 @@ alias[effect:add_advisor_role] = {
 	character = <character_id>
 	advisor = {
 		slot = scalar
+		## cardinality = 0..1
+		ledger = scalar
+		## cardinality = 0..1
 		cost = int
-		idea_token = <character_id>
+		idea_token = value_set[advisor_ids]
 		## cardinality = 0..1
 		traits = {
 			## cardinality = 0..inf
 			<country_leader_trait>
 		}
 		## cardinality = 0..1
-		allowed = { always = bool }
+		allowed = {
+			## cardinality = ~1..inf
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## cardinality = 0..1
+		available = {
+			## cardinality = ~1..inf
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## cardinality = 0..1
+		visible = {
+			## cardinality = ~1..inf
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## cardinality = 0..1
+		## push_scope = country
+		modifier = {
+			## cardinality = ~1..inf
+			alias_name[modifier] = alias_match_left[modifier]
+		}
+		## cardinality = 0..1
+		research_bonus = {
+			## cardinality = 0..inf
+			enum[tech_category] = float
+		}
+		## cardinality = 0..1
+		removal_cost = int
+		## cardinality = 0..1
+		ai_will_do = {
+			## cardinality = 0..1
+			factor = int
+		}
 	}
 	## cardinality = 0..1
 	activate = bool
@@ -3570,16 +3615,16 @@ alias[effect:recruit_character] = <character_id>
 ## scope = character
 alias[effect:promote_character] = bool
 ## scope = character
-alias[effect:promote_character] = <ideology>
+alias[effect:promote_character] = enum[sub_ideology]
 ## scope = character
-alias[effect:promote_character] = { ideology = <ideology> }
+alias[effect:promote_character] = { ideology = enum[sub_ideology] }
 
 ## scope = country
 alias[effect:promote_character] = <character_id>
 ## scope = country
 alias[effect:promote_character] = {
 	character = <character_id>
-	ideology = <ideology>
+	ideology = enum[sub_ideology]
 }
 
 ## scope = any
@@ -3616,9 +3661,9 @@ alias[effect:uncomplete_national_focus] = {
 ### builds railway from start_province to target_province
 ## scope = country
 alias[effect:build_railway] = {
-	## cardinality = ~1..1
+	## cardinality = 0..1
 	start_province = enum[provinces]
-	## cardinality = ~1..1
+	## cardinality = 0..1
 	target_province = enum[provinces]
 	## cardinality = 0..1
 	level = int
@@ -3636,9 +3681,9 @@ alias[effect:build_railway] = {
 ### builds railway from start_state to target_state
 ## scope = country
 alias[effect:build_railway] = {
-	## cardinality = ~1..1
+	## cardinality = 0..1
 	start_state = <state>
-	## cardinality = ~1..1
+	## cardinality = 0..1
 	target_state = <state>
 	## cardinality = 0..1
 	level = int

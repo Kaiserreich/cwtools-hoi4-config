@@ -48,6 +48,7 @@ character = {
 			ideology = enum[sub_ideology]
 			## cardinality = 0..1
 			traits = {
+				## cardinality = 1..inf
 				<country_leader_trait>
 			}
 			## cardinality = 0..1
@@ -132,8 +133,7 @@ character = {
 		advisor = {
 			## cardinality = ~1..1
 			slot = scalar
-			## cardinality = ~1..1
-			idea_token = scalar
+			idea_token = value_set[advisor_ids]
 			## cardinality = 0..1
 			allowed = {
 				## cardinality = ~1..inf
@@ -141,6 +141,11 @@ character = {
 			}
 			## cardinality = 0..1
 			available = {
+				## cardinality = ~1..inf
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			## cardinality = 0..1
+			visible = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
 			}

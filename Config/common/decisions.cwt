@@ -181,6 +181,7 @@ decision = {
 	## cardinality = 0..1
 	fire_only_once = bool
 
+
 	subtype[country] = {
 		### Check if this decision can be activated.
 		## cardinality = 0..1
@@ -238,6 +239,10 @@ decision = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### Tell AI how much PP is needed if coustom cost trigger is used
+	## cardinality = 0..1
+	ai_hint_pp_cost = int
+
 	## cardinality = 0..1
 	cost = int_variable_field
 	subtype[custom_cost] = {
@@ -253,6 +258,25 @@ decision = {
 	highlight_states = {
 		## cardinality = ~1..inf
 		alias_name[trigger] = alias_match_left[trigger]
+		## cardinality = 0..1
+		highlight_states_trigger = {
+			alias_name[trigger] = alias_match_left[trigger]
+			## cardinality = 0..1
+			highlight_color_while_active = int
+		}
+		## cardinality = 0..1
+		highlight_state_targets = {
+			## cardinality = ~1..inf
+			state = <state>
+			## cardinality = ~1..inf
+			state = variable_field
+		}
+
+		## cardinality = 0..1
+		highlight_provinces = {
+			## cardinality = ~1..inf
+			enum[provinces]
+		}
 	}
 
 	## cardinality = 0..1
@@ -377,6 +401,10 @@ decision = {
 		## cardinality = 0..1
 		targets_dynamic = bool
 
+		### Make the decision appear even if target (for example TAG) is not existing
+		## cardinality = 0..1
+		target_non_existing = bool
+
 		## cardinality = 0..1
 		## replace_scope = { this = country root = country }
 		target_root_trigger = {
@@ -418,6 +446,10 @@ decision = {
 
 	## cardinality = 0..1
 	on_map_mode = enum[targeted_decisions_state_map_modes]
+
+	### Make the decision appear even if target (for example TAG) is not existing
+	## cardinality = 0..1
+	target_non_existing = bool
 
 	subtype[state_targeted] = {
 		### Can the player see this decision.
