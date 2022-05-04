@@ -30,6 +30,8 @@ technology = {
 	xp_research_cost = int
 	## cardinality = 0..1
 	xp_research_bonus = float
+	## cardinality = 0..1
+	xp_boost_cost = int
 
 	## cardinality = 0..1
 	### Hides technology unless trigger is true.

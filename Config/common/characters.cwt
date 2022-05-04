@@ -40,6 +40,11 @@ character = {
 				small = filepath
 			}
 		}
+		## cardinality = 0..1
+		allowed_civil_war = {
+			## cardinality = ~1..inf
+			alias_name[trigger] = alias_match_left[trigger]
+		}
 		## cardinality = 0..inf
 		country_leader = {
 			## cardinality = 0..1

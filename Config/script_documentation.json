@@ -2047,6 +2047,11 @@
 			"supported_target":	["none"],
 			"description":	"Checks for amount of ships, additionally of a specified type, archetype, or sub unit definition.\n\nExamples:\n\thas_navy_size = { size > 10 type = convoy } # Must have more than 10 convoys.\n\thas_navy_size = { size < 1 archetype = ship_hull_light } # Must not have any ships with light hulls.\n\thas_navy_size = { size > 39 unit = heavy_cruiser } # Must have 40 or more heavy cruisers.\n\thas_navy_size = { size < 100 } # Must have fewer than 100 ships of any type."
 		},
+		"num_of_controlled_factories":	{
+			"supported_scope":	["COUNTRY"],
+			"supported_target":	["THIS", "ROOT", "PREV", "FROM", "OWNER", "CONTROLLER", "OCCUPIED", "CAPITAL"],
+			"description":	"check amount of controlled factories"
+		},
 		"num_of_military_factories":	{
 			"supported_scope":	["COUNTRY"],
 			"supported_target":	["THIS", "ROOT", "PREV", "FROM", "OWNER", "CONTROLLER", "OCCUPIED", "CAPITAL"],
@@ -3808,6 +3813,12 @@
 			"type":	"number",
 			"decimal_places":	2,
 			"categories":	["country"]
+		}, {
+			"name":	"party_popularity_stability_factor",
+			"type":	"number",
+			"decimal_places":	2,
+			"categories":	["country"],
+			"description": "Party Popularity Stability Modifier"
 		}, {
 			"name":	"political_power_cost",
 			"type":	"number",

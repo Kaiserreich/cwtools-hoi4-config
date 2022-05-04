@@ -1664,6 +1664,10 @@ alias[effect:add_to_war] = {
 ## scope = country
 alias[effect:show_ideas_tooltip] = enum[idea_name]
 
+### Show what idea does.
+## scope = country
+alias[effect:show_ideas_tooltip] = value[advisor_ids]
+
 ### Creates a new equipment variant.
 ## scope = country
 alias[effect:create_equipment_variant] = {
@@ -1854,6 +1858,19 @@ alias[effect:set_autonomy] = {
 	target = scope[country]
 	target = enum[country_tags]
 	freedom_level = float[0..1]
+}
+
+### Makes autonomy of specified level and country.
+## scope = country
+alias[effect:set_autonomy] = {
+	target = scope[country]
+	target = enum[country_tags]
+	autonomy_state = <autonomy>
+	autonomy_state = autonomy_free
+	## cardinality = 0..1
+	end_wars = bool
+	## cardinality = 0..1
+	end_civil_wars = bool
 }
 
 ### Adds country to technology sharing group of specified name.
@@ -3586,8 +3603,12 @@ alias[effect:remove_trait] = {
 }
 ## scope = character
 alias[effect:remove_trait] = {
-	ideology = <ideology>
+	ideology = enum[sub_ideology]
 	trait = <country_leader_trait>
+}
+## scope = character
+alias[effect:remove_trait] = {
+	trait = <unit_leader_trait>
 }
 
 ## scope = any

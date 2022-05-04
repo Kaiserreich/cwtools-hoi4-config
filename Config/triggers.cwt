@@ -204,6 +204,10 @@ alias[trigger:has_dlc] = enum[dlc]
 ## scope = country
 alias[trigger:has_idea] = enum[idea_name]
 
+### Check if country has idea.
+## scope = country
+alias[trigger:has_idea] = value[advisor_ids]
+
 ### Check if any enemy country meets the trigger.
 ## scope = country
 ## push_scope = country
@@ -409,6 +413,10 @@ alias[trigger:has_navy_size] = {
 	## cardinality = 0..1
 	archetype = <equipment.archetype_equip>
 }
+
+### Check amount of controlled factories.
+## scope = country
+alias[trigger:num_of_controlled_factories] = variable_field
 
 ### Check amount of military factories.
 ## scope = country

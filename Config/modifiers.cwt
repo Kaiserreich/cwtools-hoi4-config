@@ -349,6 +349,7 @@ modifiers = {
 	own_operative_detection_chance = country
 	own_operative_detection_chance_factor = country
 	partisan_effect = country
+	party_popularity_stability_factor = country
 	planning_speed = country
 	pocket_penalty = country
 	political_advisor_cost_factor = country

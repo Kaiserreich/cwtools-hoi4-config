@@ -41,6 +41,8 @@ country_leader_trait = {
 	random = bool
 	## cardinality = 0..1
 	sprite = int
+	## cardinality = 0..1
+	command_cap = scalar
 	alias_name[modifier] = alias_match_left[modifier]
 	## cardinality = 0..100
 	alias_name[ai_strategy_rule] = alias_match_left[ai_strategy_rule]
@@ -72,6 +74,14 @@ country_leader_trait = {
 		}
 		## cardinality = 0..inf
 		<unit> = {
+			## cardinality = 0..1
+			instant = bool
+			alias_name[unit_stat] = alias_match_left[unit_stat]
+			alias_name[naval_stat] = alias_match_left[naval_stat]
+			alias_name[air_stat] = alias_match_left[air_stat]
+		}
+		## cardinality = 0..inf
+		enum[armor_chassis_categories] = {
 			## cardinality = 0..1
 			instant = bool
 			alias_name[unit_stat] = alias_match_left[unit_stat]
