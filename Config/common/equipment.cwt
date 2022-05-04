@@ -31,6 +31,12 @@ types = {
 			## cardinality = 0..1
 			archetype = <equipment.air_equip>
 		}
+		subtype[armor_equip] = {
+			## cardinality = 0..1
+			type = armor
+			## cardinality = 0..1
+			archetype = <equipment.armor_equip>
+		}
 	}
 	type[upgrade] = {
 		skip_root_key = upgrades
@@ -151,6 +157,53 @@ equipment = {
 		## cardinality = 0..1
 		model = scalar
 
+		## cardinality = 0..1
+		### List of module slots and their details.
+		module_slots = {
+			## cardinality = 0..inf
+			enum[module_slots] = {
+				required = bool
+				allowed_module_categories = {
+					## cardinality = 1..inf
+					enum[module_categories]
+				}
+				## cardinality = 0..1
+				gfx = scalar
+			}
+			## cardinality = 0..inf
+			enum[module_slots] = enum[module_slots]
+			## cardinality = 0..inf
+			enum[module_slots] = inherit
+		}
+
+		## cardinality = 0..1
+		### All parent module slots will directly inherited with no modifications.
+		module_slots = inherit
+
+		## cardinality = 0..inf
+		### Any number of module count limits can be specified. They are automatically inherited by child equipment types. An inherited limit is overridden if the child has a limit with exactly the same match conditions.
+		module_count_limit = {
+			## cardinality = 0..1
+			category = enum[module_categories]
+			## cardinality = 0..1
+			module = <module>
+			count = int
+		}
+
+		### List of modules assigned to module slots for the default equipment variant for this type.
+		default_modules = {
+			## cardinality = 0..inf
+			enum[module_slots] = <module>
+			## cardinality = 0..inf
+			enum[module_slots] = empty
+		}
+	}
+
+	subtype[armor_equip] = {
+		## cardinality = 0..1
+		abbreviation = scalar
+		## cardinality = 0..1
+		derived_variant_name = scalar
 		## cardinality = 0..1
 		### List of module slots and their details.
 		module_slots = {
@@ -349,6 +402,65 @@ enums = {
 		interface_category_screen_ships
 		interface_category_other_ships
 		interface_category_air
+	}
+	enum[armor_variants] = {
+		light_tank_chassis_0
+		medium_tank_chassis_0
+		heavy_tank_chassis_0
+		light_tank_destroyer_chassis_0
+		medium_tank_destroyer_chassis_0
+		heavy_tank_destroyer_chassis_0
+		light_tank_artillery_chassis_0
+		medium_tank_artillery_chassis_0
+		heavy_tank_artillery_chassis_0
+		light_tank_aa_chassis_0
+		medium_tank_aa_chassis_0
+		heavy_tank_aa_chassis_0
+		light_tank_chassis_1
+		light_tank_destroyer_chassis_1
+		light_tank_artillery_chassis_1
+		light_tank_aa_chassis_1
+		light_tank_chassis_2
+		light_tank_destroyer_chassis_2
+		light_tank_artillery_chassis_2
+		light_tank_aa_chassis_2
+		amphibious_tank_chassis_1
+		light_tank_chassis_3
+		light_tank_destroyer_chassis_3
+		light_tank_artillery_chassis_3
+		light_tank_aa_chassis_3
+		medium_tank_chassis_1
+		medium_tank_destroyer_chassis_1
+		medium_tank_artillery_chassis_1
+		medium_tank_aa_chassis_1
+		medium_tank_chassis_2
+		medium_tank_destroyer_chassis_2
+		medium_tank_artillery_chassis_2
+		medium_tank_aa_chassis_2
+		medium_tank_chassis_3
+		medium_tank_destroyer_chassis_3
+		medium_tank_artillery_chassis_3
+		medium_tank_aa_chassis_3
+		modern_tank_chassis_1
+		modern_tank_destroyer_chassis_1
+		modern_tank_artillery_chassis_1
+		modern_tank_aa_chassis_1
+		heavy_tank_chassis_1
+		heavy_tank_destroyer_chassis_1
+		heavy_tank_artillery_chassis_1
+		heavy_tank_aa_chassis_1
+		heavy_tank_chassis_2
+		heavy_tank_destroyer_chassis_2
+		heavy_tank_artillery_chassis_2
+		heavy_tank_aa_chassis_2
+		heavy_tank_chassis_3
+		heavy_tank_destroyer_chassis_3
+		heavy_tank_artillery_chassis_3
+		heavy_tank_aa_chassis_3
+		super_heavy_tank_chassis_1
+		super_heavy_tank_destroyer_chassis_1
+		super_heavy_tank_artillery_chassis_1
+		super_heavy_tank_aa_chassis_1
 	}
 	complex_enum[module_slots] = {
 		path = "game/common/units/equipment"

@@ -330,8 +330,13 @@ ai_equipment_design_group = {
 			### An additional weight indicating how much the particular design is worth, if it matches.
 			match_value = float
 
+			## cardinality = 0..1
 			### The equipment archetype or equipment type that the variant must use to match.
 			type = <equipment>
+
+			## cardinality = 0..1
+			### The equipment archetype or equipment type that the variant must use to match.
+			type = enum[armor_variants]
 
 			### The matching requirements on individual module slots.
 			modules = {

@@ -78,6 +78,11 @@ character = {
 			id = value_set[unit_leader_ids]
 			## cardinality = 0..1
 			female = bool
+			## cardinality = 0..1
+			visible = {
+				## cardinality = ~1..inf
+				alias_name[trigger] = alias_match_left[trigger]
+			}
 		}
 		## cardinality = 0..1
 		corps_commander = {
@@ -103,6 +108,11 @@ character = {
 			id = value_set[unit_leader_ids]
 			## cardinality = 0..1
 			female = bool
+			## cardinality = 0..1
+			visible = {
+				## cardinality = ~1..inf
+				alias_name[trigger] = alias_match_left[trigger]
+			}
 		}
 		## cardinality = 0..1
 		navy_leader = {
@@ -128,6 +138,11 @@ character = {
 			id = value_set[unit_leader_ids]
 			## cardinality = 0..1
 			female = bool
+			## cardinality = 0..1
+			visible = {
+				## cardinality = ~1..inf
+				alias_name[trigger] = alias_match_left[trigger]
+			}
 		}
 		## cardinality = 0..inf
 		advisor = {
@@ -150,7 +165,14 @@ character = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			## cardinality = 0..1
+			desc = localisation
+			## cardinality = 0..1
 			on_add = {
+				## cardinality = ~1..inf
+				alias_name[effect] = alias_match_left[effect]
+			}
+			## cardinality = 0..1
+			on_remove = {
 				## cardinality = ~1..inf
 				alias_name[effect] = alias_match_left[effect]
 			}
@@ -179,7 +201,8 @@ character = {
 			## cardinality = 0..1
 			ai_will_do = {
 				## cardinality = 0..1
-				factor = int
+				enum[base_factor] = float
+				alias_name[modifier_rule] = alias_match_left[modifier_rule]
 			}
 		}
 	}
