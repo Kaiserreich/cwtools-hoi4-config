@@ -454,6 +454,10 @@ alias[trigger:num_of_available_naval_factories] = variable_field
 ## scope = country
 alias[trigger:num_of_available_civilian_factories] = variable_field
 
+### Check if tag is a dynamic country.
+## scope = country
+alias[trigger:is_dynamic_country] = bool
+
 ### Check if member of same faction as specified country.
 ## scope = country
 alias[trigger:is_in_faction_with] = scope[country]

@@ -164,6 +164,11 @@ idea = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			## cardinality = 0..1
+			cancel = {
+				## cardinality = ~1..inf
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			## cardinality = 0..1
 			available = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]

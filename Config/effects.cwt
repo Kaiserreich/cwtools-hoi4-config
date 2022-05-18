@@ -767,6 +767,10 @@ alias[effect:set_politics] = {
 	ruling_party = <ideology>
 	ruling_party = variable_field
 	## cardinality = 0..1
+	name = localisation
+	## cardinality = 0..1
+	long_name = localisation
+	## cardinality = 0..1
 	elections_allowed = bool
 	## cardinality = 0..1
 	last_election = date_field
@@ -2666,6 +2670,7 @@ alias[effect:activate_targeted_decision] = {
 ### Activates targeted decisions or mission, ignoring its normal trigger conditions, cooldown and fire only once. Cannot activate if active in interface.
 ## scope = country
 alias[effect:activate_targeted_decision] = {
+	target = scope[state]
 	target = <state>
 	decision = <decision.state_targeted>
 }
@@ -3431,6 +3436,8 @@ alias[effect:add_country_leader_role] = {
 	country_leader = {
 		## cardinality = ~1..1
 		ideology = enum[sub_ideology]
+		## cardinality = 0..1
+		desc = localisation
 		## cardinality = 0..1
 		expire = scalar
 		## cardinality = 0..1

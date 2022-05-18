@@ -16,6 +16,8 @@ types = {
 		subtype[triggered] = {
 
 		}
+		## cardinality = 0..1
+		fallback = enum[explicit_country_tags]
 	}
 }
 
