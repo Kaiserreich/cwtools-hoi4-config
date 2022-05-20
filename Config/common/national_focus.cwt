@@ -232,6 +232,12 @@ focus_tree = {
 			## cardinality = ~1..inf
 			value_set[focus_filter]
 		}
+
+		## cardinality = 0..1
+		on_uncomplete = {
+			## cardinality = ~1..inf
+			alias_name[effect] = alias_match_left[effect]
+		}
 	}
 }
 
@@ -394,5 +400,11 @@ shared_focus = {
 	search_filters = {
 		## cardinality = ~1..inf
 		value_set[focus_filter]
+	}
+
+	## cardinality = 0..1
+	on_uncomplete = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
 	}
 }

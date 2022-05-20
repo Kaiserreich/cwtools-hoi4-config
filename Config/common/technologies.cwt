@@ -62,6 +62,10 @@ technology = {
 	enable_equipments = {
 		## cardinality = ~1..inf
 		<equipment>
+	}
+	## cardinality = 0..1
+	### Enables listed equipment.
+	enable_equipments = {
 		## cardinality = ~1..inf
 		enum[armor_variants]
 	}

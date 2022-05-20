@@ -2432,3 +2432,6 @@ alias[trigger:any_character] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
+### Checks if country has armored variant based on archetype
+## scopes = country
+alias[effect:has_design_based_on] = enum[armor_chassis_categories]
