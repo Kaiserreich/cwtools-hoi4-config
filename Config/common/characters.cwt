@@ -23,21 +23,21 @@ character = {
 				## cardinality = 0..1
 				large = filepath
 				## cardinality = 0..1
-				small = filepath
+				small = scalar
 			}
 			## cardinality = 0..1
 			army = {
 				## cardinality = 0..1
 				large = filepath
 				## cardinality = 0..1
-				small = filepath
+				small = scalar
 			}
 			## cardinality = 0..1
 			navy = {
 				## cardinality = 0..1
 				large = filepath
 				## cardinality = 0..1
-				small = filepath
+				small = scalar
 			}
 		}
 		## cardinality = 0..1
