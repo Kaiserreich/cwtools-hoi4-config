@@ -194,7 +194,7 @@ alias[effect:random_country] = {
 }
 
 
-### Executes children effects on every neighbor country that fulfills the "limit" trigger.
+### Executes children effects on every neighbour country that fulfills the "limit" trigger.
 ## scope = country
 ## push_scope = country
 alias[effect:every_neighbor_country] = {
@@ -222,7 +222,7 @@ alias[effect:random_neighbor_country] = {
 }
 
 
-### Executes children effects on random enemy country that fulfills the "limit" trigger.
+### Executes children effects on every enemy country that fulfills the "limit" trigger.
 ## scope = country
 ## push_scope = country
 alias[effect:every_enemy_country] = {
