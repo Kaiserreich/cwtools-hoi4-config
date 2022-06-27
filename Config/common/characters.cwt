@@ -23,21 +23,21 @@ character = {
 				## cardinality = 0..1
 				large = filepath
 				## cardinality = 0..1
-				small = filepath
+				small = scalar
 			}
 			## cardinality = 0..1
 			army = {
 				## cardinality = 0..1
 				large = filepath
 				## cardinality = 0..1
-				small = filepath
+				small = scalar
 			}
 			## cardinality = 0..1
 			navy = {
 				## cardinality = 0..1
 				large = filepath
 				## cardinality = 0..1
-				small = filepath
+				small = scalar
 			}
 		}
 		## cardinality = 0..1
@@ -84,6 +84,8 @@ character = {
 			## cardinality = 0..1
 			female = bool
 			## cardinality = 0..1
+			legacy_id = int
+			## cardinality = 0..1
 			visible = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
@@ -114,6 +116,8 @@ character = {
 			## cardinality = 0..1
 			female = bool
 			## cardinality = 0..1
+			legacy_id = int
+			## cardinality = 0..1
 			visible = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
@@ -143,6 +147,8 @@ character = {
 			id = value_set[unit_leader_ids]
 			## cardinality = 0..1
 			female = bool
+			## cardinality = 0..1
+			legacy_id = int
 			## cardinality = 0..1
 			visible = {
 				## cardinality = ~1..inf
@@ -212,7 +218,6 @@ character = {
 		}
 	}
 }
-
 
 enums = {
 	complex_enum[characters] = {

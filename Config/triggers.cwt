@@ -1337,7 +1337,12 @@ alias[trigger:min_planning] = float
 ### Check if country has specified leader. Don't localize this. Tooltip only for debug.
 ## scope = country
 alias[trigger:has_country_leader] = {
+	## cardinality = 0..1
 	character = <character_id>
+	## cardinality = 0..1
+	name = localisation
+	## cardinality = 0..1
+	ruling_only = bool
 }
 
 ### Compares current country's army experience with right side value.
