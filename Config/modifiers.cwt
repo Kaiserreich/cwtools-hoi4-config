@@ -269,10 +269,10 @@ modifiers = {
 	modifier_army_sub_unit_light_tank_recon_speed_factor = army
 	modifier_army_sub_unit_long_range_patrol_support_attack_factor = army
 	modifier_army_sub_unit_long_range_patrol_support_defence_factor = army
-	modifier_army_sub_unit_marines_attack_factor = army
-	modifier_army_sub_unit_marines_defence_factor = army
-	modifier_army_sub_unit_marines_max_org_factor = army
-	modifier_army_sub_unit_marines_speed_factor = army
+	modifier_army_sub_unit_marine_attack_factor = army
+	modifier_army_sub_unit_marine_defence_factor = army
+	modifier_army_sub_unit_marine_max_org_factor = army
+	modifier_army_sub_unit_marine_speed_factor = army
 	modifier_army_sub_unit_military_police_attack_factor = army
 	modifier_army_sub_unit_military_police_defence_factor = army
 	modifier_army_sub_unit_military_police_max_org_factor = army
@@ -1952,10 +1952,8 @@ enums = {
 		state_production_speed_<building>_factor
 		state_resources_<resource>_factor
 		<technology>_cost_factor
-		<trait>_xp_gain_factor
 		production_cost_<building>_factor
 		repair_speed_<building>_factor
-		trait_<trait>_xp_gain_factor
 		unit_<unit>_design_cost_factor
 		<operation>_cost
 		<operation>_outcome
@@ -2298,10 +2296,10 @@ enums = {
 		modifier_army_sub_unit_light_tank_recon_speed_factor
 		modifier_army_sub_unit_long_range_patrol_support_attack_factor
 		modifier_army_sub_unit_long_range_patrol_support_defence_factor
-		modifier_army_sub_unit_marines_attack_factor
-		modifier_army_sub_unit_marines_defence_factor
-		modifier_army_sub_unit_marines_max_org_factor
-		modifier_army_sub_unit_marines_speed_factor
+		modifier_army_sub_unit_marine_attack_factor
+		modifier_army_sub_unit_marine_defence_factor
+		modifier_army_sub_unit_marine_max_org_factor
+		modifier_army_sub_unit_marine_speed_factor
 		modifier_army_sub_unit_military_police_attack_factor
 		modifier_army_sub_unit_military_police_defence_factor
 		modifier_army_sub_unit_military_police_max_org_factor
