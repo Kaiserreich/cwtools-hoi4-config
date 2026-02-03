@@ -2169,6 +2169,9 @@ alias[trigger:has_resources_in_country] = {
 	### Checks only amount from local buildings instead of country balance. Default - no
 	## cardinality = 0..1
 	buildings = bool
+	### Checks only imported resources. Defaults to no
+	## cardinality = 0..1
+	only_imported = bool
 }
 
 #if updating also update _country_with_original_tag_of and _country_with_original_tag, any_state_in 
