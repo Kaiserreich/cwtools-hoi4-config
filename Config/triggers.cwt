@@ -1664,7 +1664,7 @@ alias[trigger:has_attache_from] = enum[country_tags]
 
 ### Checks for amount manpower currently in deploymentview. amount_manpower_in_training > 10.
 ## scope = country
-alias[trigger:amount_manpower_in_deployment_queue] = float
+alias[trigger:amount_manpower_in_deployment_queue] = variable_field
 
 ### Checks for amount manpower currently the target state with option to specify a type.
 ## scope = country
@@ -2169,6 +2169,9 @@ alias[trigger:has_resources_in_country] = {
 	### Checks only amount from local buildings instead of country balance. Default - no
 	## cardinality = 0..1
 	buildings = bool
+	### Checks only imported resources. Defaults to no
+	## cardinality = 0..1
+	only_imported = bool
 }
 
 #if updating also update _country_with_original_tag_of and _country_with_original_tag, any_state_in 
