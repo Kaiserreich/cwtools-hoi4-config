@@ -649,3 +649,7 @@ alias[trigger:tooltip_evaluation] = eval
 
 ## scope = { country }
 alias[trigger:has_any_grand_doctrine] = enum[equipment_categories]
+
+### Returns energy fulfillment on a country scope. 0 .. 1
+## scope = { country }
+alias[trigger:energy_ratio] = variable_field[0..1]
