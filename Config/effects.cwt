@@ -3819,6 +3819,8 @@ single_alias[every_effect_clause] = {
 	## cardinality = 0..1
 	visible_when_empty = bool
 	## cardinality = 0..1
+	include_invisible = bool
+	## cardinality = 0..1
 	limit = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
