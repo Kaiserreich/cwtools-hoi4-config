@@ -95,6 +95,7 @@ alias[effect:randomize_variable] = {
 	var = value_set[variable]
 	distribution = uniform
 	distribution = binomial
+	distribution = poisson
 	## cardinality = 0..1
 	min = variable_field
 	## cardinality = 0..1
