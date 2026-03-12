@@ -95,6 +95,7 @@ raid = {
 	unlimited_ai_range = bool
 
     ## replace_scope = { this = country root = country FROM = country }
+    ## cardinality = 0..1
     allowed = {
         ## cardinality = ~1..inf
         alias_name[trigger] = alias_match_left[trigger]
@@ -103,6 +104,7 @@ raid = {
 
     # Whether the raid type should be visible or not, before considering potential targets
     ## replace_scope = { this = country root = country FROM = country }
+    ## cardinality = 0..1
     visible = {
         ## cardinality = ~1..inf
         alias_name[trigger] = alias_match_left[trigger]
