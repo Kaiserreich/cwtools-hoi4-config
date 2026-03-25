@@ -109,19 +109,19 @@ alias[effect:subtract_from_temp_variable] = single_alias_right[set_var_and_value
 
 ### Multiplies a temp variable to a value or another variable.
 ## scope = any
-alias[effect:multiply_temp_variable] = single_alias_right[var_equals_value_clause]
+alias[effect:multiply_temp_variable] = single_alias_right[set_var_equals_value_clause]
 
 ### Multiplies a temp variable to a value or another variable.
 ## scope = any
-alias[effect:multiply_temp_variable] = single_alias_right[var_and_value_clause]
+alias[effect:multiply_temp_variable] = single_alias_right[set_var_and_value_clause]
 
 ### Divides a temp variable to a value or another variable.
 ## scope = any
-alias[effect:divide_temp_variable] = single_alias_right[var_equals_value_clause]
+alias[effect:divide_temp_variable] = single_alias_right[set_var_equals_value_clause]
 
 ### Divides a temp variable to a value or another variable.
 ## scope = any
-alias[effect:divide_temp_variable] = single_alias_right[var_and_value_clause]
+alias[effect:divide_temp_variable] = single_alias_right[set_var_and_value_clause]
 
 ###Randomize a temporary variable.
 ## scope = { any }
@@ -145,13 +145,13 @@ alias[effect:randomize_temp_variable] = {
 ###Modulos a temp variable with another.
 ## scope = { any }
 alias[effect:modulo_temp_variable] = {
-	scope[country].value[variable] = variable_field
+	value_set[variable] = variable_field
 }
 
 ###Mdulos a temp variable with another.
 ## scope = { any }
 alias[effect:modulo_temp_variable] = {
-	var = scope[country].value[variable]
+	var = value_set[variable]
 	value = variable_field
 }
 
@@ -174,7 +174,7 @@ alias[effect:set_temp_variable_to_random] = {
 ### Clamps a temp variable between two a values or another variables.
 ## scope = any
 alias[effect:clamp_temp_variable] = {
-	var = scope[country].value[variable]
+	var = value_set[variable]
 	## cardinality = 0..1
 	min = variable_field
 	## cardinality = 0..1
@@ -183,4 +183,4 @@ alias[effect:clamp_temp_variable] = {
 
 ### Rounds a temporary variable.
 ## scope = { any }
-alias[effect:round_temp_variable] = scope[country].value[variable]
+alias[effect:round_temp_variable] = value_set[variable]
