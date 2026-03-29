@@ -272,6 +272,8 @@ military_industrial_organization = {
 		## cardinality = 0..1
 		icon
 		## cardinality = 0..1
+		background
+		## cardinality = 0..1
 		allowed
 		## cardinality = 0..1
 		visible
@@ -301,6 +303,8 @@ military_industrial_organization = {
 		tree_header_text
 		## cardinality = 0..1
 		ai_will_do
+		## cardinality = 0..1
+		initial_trait
 	}
 	### Use this parameter to add traits when inheriting another MIO's tree
 	## cardinality = 0..inf
@@ -539,11 +543,37 @@ military_industrial_organization = {
 			## cardinality = 0..1
 			icon
 			## cardinality = 0..1
-			allowed
+			special_trait_background
+			## cardinality = 0..1
+			parent
+			## cardinality = 0..1
+			any_parent
+			## cardinality = 0..1
+			all_parents
+			## cardinality = 0..1
+			mutually_exclusive
 			## cardinality = 0..1
 			visible
 			## cardinality = 0..1
 			available
+			## cardinality = 0..1
+			on_complete
+			## cardinality = 0..1
+			limit_to_equipment_type
+			## cardinality = 0..1
+			equipment_bonus
+			## cardinality = 0..1
+			production_bonus
+			## cardinality = 0..1
+			organization_modifier
+			## cardinality = 0..1
+			position
+			## cardinality = 0..1
+			relative_position_id
+			## cardinality = 0..1
+			ai_will_do
+			## cardinality = 0..1
+			allowed
 			## cardinality = 0..1
 			equipment_type
 			## cardinality = 0..1
@@ -566,8 +596,6 @@ military_industrial_organization = {
 			task_capacity
 			## cardinality = 0..1
 			tree_header_text
-			## cardinality = 0..1
-			ai_will_do
 		}
 	}
 }
