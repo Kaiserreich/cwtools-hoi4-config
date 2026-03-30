@@ -45,6 +45,10 @@ operation = {
 	## cardinality = 0..1
 	is_staged_coup = yes
 
+	### Multiplier for the operation time
+	## cardinality = 0..1
+	time_multiplier = float
+
 	### Multiplier for the operation cost
 	## cardinality = 0..1
 	cost_multiplier = float

@@ -578,7 +578,7 @@ on_action = {
 	### Triggered daily for the specified country. Only runs the effects if the country exists. Tag isn't checked for validity
 	## replace_scope = { THIS = country ROOT = country }
 	## cardinality = 0..inf
-	<on_action_daily> = single_alias_right[on_action_effect]
+	<on_action_daily> = single_alias_right[country_event_effect]
 
 	### Triggers each week for every country separately. Useful for ai scripting. Runs on the beginning of the day if the num_days variable is divisible by 7.
 	## cardinality = 0..inf
@@ -588,7 +588,7 @@ on_action = {
 	### Triggered weekly for the specified country. Only runs the effects if the country exists. Runs on the beginning of the day if the num_days variable is divisible by 7. Tag isn't checked for validity
 	## replace_scope = { THIS = country ROOT = country }
 	## cardinality = 0..inf
-	<on_action_weekly> = single_alias_right[on_action_effect]
+	<on_action_weekly> = single_alias_right[country_event_effect]
 
 	### Triggers each month for every country separately.
 	## cardinality = 0..inf
@@ -598,7 +598,7 @@ on_action = {
 	### Triggered monthly for the specified country. Only runs the effects if the country exists. Tag isn't checked for validity
 	## replace_scope = { THIS = country ROOT = country }
 	## cardinality = 0..inf
-	<on_action_monthly> = single_alias_right[on_action_effect]
+	<on_action_monthly> = single_alias_right[country_event_effect]
 
 
 	# ------------ Political on actions ------------
@@ -1139,6 +1139,20 @@ on_action = {
 	## cardinality = 0..inf
 	## replace_scope = { ROOT = COUNTRY this = COUNTRY FROM = COUNTRY }
 	on_before_peace_conference_start = single_alias_right[on_action_effect]
+
+	# ------------ International Market on actions ------------
+
+	## cardinality = 0..inf
+	## replace_scope = { ROOT = contract this = contract }
+	on_contract_started = single_alias_right[on_action_effect]
+
+	## cardinality = 0..inf
+	## replace_scope = { ROOT = contract this = contract }
+	on_contract_finished = single_alias_right[on_action_effect]
+
+	## cardinality = 0..inf
+	## replace_scope = { ROOT = contract this = contract }
+	on_contract_cancelled = single_alias_right[on_action_effect]
 }
 
 single_alias[country_event_effect] = {

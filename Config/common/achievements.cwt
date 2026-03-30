@@ -19,9 +19,16 @@ achievement = {
 
 	## cardinality = 0..1
 	ribbon = {
-		frames = { int }
+		frames = {
+			## cardinality = 1..inf
+			int
+		}
 		colors = {
-			scalar
+			## cardinality = 1..inf
+			{
+				## cardinality = 1..4
+				scalar
+			}
 		}
 	}
 }
