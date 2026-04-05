@@ -222,7 +222,7 @@ alias[effect:add_scientist_role] = {
 			# same format as in scientist role in character DB
 			# by default all skills are at 1
 			## cardinality = ~1..inf
-			<specialization> = 2
+			<specialization> = int
 		}
 		## cardinality = 0..1
 		traits = {
