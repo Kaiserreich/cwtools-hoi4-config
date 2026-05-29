@@ -1168,6 +1168,8 @@ values = {
 		total_constructed_naval_supply_hub
 		### Total produced equipment of typesupport_ship
 		total_equipment_produced_support_ship
+		### Compare current energy fulfilment to the factories, with 1 being 100% and 0 being 0%
+		energy_ratio
 		### end NCNS variables
 
 		###  TO be sorted
