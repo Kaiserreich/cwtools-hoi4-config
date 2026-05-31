@@ -593,6 +593,7 @@ enums = {
 	enum[ai_xp_targets] = {
 		division_template
 		upgrade_xp_cutoff
+		unlock_doctrine
 	}
 	enum[unit_strats] = {
 		equipment_production_factor
