@@ -1223,6 +1223,10 @@ values = {
 		### Number of order groups assigned to the unit leader. 
 		num_orders_groups
 
+		#taog
+		days_until_next_election
+		convoys_destroyed
+		avg_unit_entrenchment_ratio
 
 		# ========================
 		# MODIFIER VARIABLES

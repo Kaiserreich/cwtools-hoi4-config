@@ -97,6 +97,9 @@ types = {
 character = {
 
 	subtype[uninstanced] = {
+		#default is yes
+		## cardinality = 0..1
+		can_be_captured = no
 		### Should have at least one portrait defined
 		portraits = {
 			### Portrait(s), army and/or civilian
@@ -356,6 +359,9 @@ character = {
 			allowed = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
+			#default is yes
+			## cardinality = 0..1
+			can_be_captured = no
 			### Should have at least one portrait defined
 			portraits = {
 				### Portrait(s), army and/or civilian

@@ -78,6 +78,14 @@ raid = {
         modifier = single_alias_right[ai_modifier_trigger_clause]
     }
 
+    ### Per-type override of RAIDS_MIN_SUCCESS_FOR_LAUNCH (0.0-1.0)
+    ## cardinality = 0..1
+    ai_min_success_chance = float[0..1]
+
+    ### Hard cap on source-to-target path length, in universal distance units (same space as the engine's path lengths). Sources further away than this cannot be used. AI ignores this when unlimited_ai_range = yes.    
+    ## cardinality = 0..1
+    max_distance = int
+
 	## cardinality = 0..1
     fire_only_once = bool # if the raid can only be executed once
     ## cardinality = 0..1
@@ -135,6 +143,16 @@ raid = {
     ## replace_scope = { this = country root = country FROM = country }
     ## cardinality = 0..1
     launchable = {
+        ## cardinality = ~1..inf
+        alias_name[trigger] = alias_match_left[trigger]
+        # Use FROM to refer to the target country, e.g. to require being at war
+        # var:target_state and var:target_province can also be used when applicable
+    }
+
+
+    ## replace_scope = { this = country root = country FROM = country }
+    ## cardinality = 0..1
+    cancel_trigger = {
         ## cardinality = ~1..inf
         alias_name[trigger] = alias_match_left[trigger]
         # Use FROM to refer to the target country, e.g. to require being at war
@@ -398,6 +416,20 @@ single_alias[raid_factors] = {
         ## cardinality = 0..1
         start_reference = float # [Optional] The value of the backing property at which the modifier will have 0 weight (or, instead, start_weight if defined).
     }
+    ## cardinality = 0..inf
+    scalar = {
+        ## cardinality = 0..1
+        scope = enum[raidscope] # Needed because we need to sample a dynamic variable from the country scope
+        formula = {
+            base = float
+            # MTTH block
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+        weight = float
+        reference = float
+        can_actor_affect = bool # If true, this modifier will be included in the list of measures the actor country can take to increase the success chance of the raid
+        can_target_affect = bool # If true, this modifier will be included in the list of countermeasures the target country can take to decreases the success chance of the raid
+    }
 }
 
 enums = {
@@ -447,5 +479,11 @@ enums = {
         recon #The recon level of the land unit assigned to the raid, if there is one. Typical reference values from 0 to 10
         organisation #The organisation (absolute) of the land unit assigned to the raid, if there is one. Reference values from 0 to 100+
         strength #The strength (factor) of the land unit assigned to the raid, if there is one. Reference values from 0.0 to 1.0
+    }
+    enum[raidscope] = {
+        country
+        state
+        character
+        unit
     }
 }

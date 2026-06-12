@@ -659,12 +659,12 @@ alias[effect:set_popularities] = {
 
 ### Add idea(s) to country.
 ## scope = country
-alias[effect:add_ideas] = enum[idea_name]
+alias[effect:add_ideas] = <idea>
 ### Add idea(s) to country.
 ## scope = country
 alias[effect:add_ideas] = {
 	## cardinality = 0..inf
-	enum[idea_name]
+	<idea>
 	## cardinality = 0..inf
 	value[advisor_token]
 	## cardinality = 0..inf
@@ -673,12 +673,12 @@ alias[effect:add_ideas] = {
 
 ### Remove idea(s) from country.
 ## scope = country
-alias[effect:remove_ideas] = enum[idea_name]
+alias[effect:remove_ideas] = <idea>
 ### Remove idea(s) from country.
 ## scope = country
 alias[effect:remove_ideas] = {
 	## cardinality = 0..inf
-	enum[idea_name]
+	<idea>
 	## cardinality = 0..inf
 	value[advisor_token]
 	## cardinality = 0..inf	
@@ -1526,7 +1526,7 @@ alias[effect:remove_unit_leader] = value[unit_leader_ids]
 ### Add time limited idea to country idea, supports days/months/years.
 ## scope = country
 alias[effect:add_timed_idea] = {
-	idea = enum[idea_name]
+	idea = <idea>
 	idea = value[variable]
 	## cardinality = 0..1
 	days = int_variable_field
@@ -1743,7 +1743,7 @@ alias[effect:add_to_war] = {
 
 ### Show what idea does.
 ## scope = country
-alias[effect:show_ideas_tooltip] = enum[idea_name]
+alias[effect:show_ideas_tooltip] = <idea>
 
 ### Show what idea does.
 ## scope = country
@@ -1902,8 +1902,8 @@ alias[effect:add_equipment_to_stockpile] = {
 ## scope = country
 alias[effect:swap_ideas] = {
 	remove_idea = value[variable]
-	remove_idea = enum[idea_name]
-	add_idea = enum[idea_name]
+	remove_idea = <idea>
+	add_idea = <idea>
 	add_idea = value[variable]
 
 	### Adds/subtracts X days from the new idea's timeout
@@ -2320,33 +2320,6 @@ alias[effect:unlock_decision_tooltip] = {
 	show_modifiers = bool
 }
 
-### Add buffs to units that are belongs to the army group/navy of this unit leader.
-## scope = { character unit_leader }
-alias[effect:add_temporary_buff_to_units] = {
-	## cardinality = 0..1
-	combat_offense = float
-	## cardinality = 0..1
-	combat_breakthrough = float
-	## cardinality = 0..1
-	combat_defense = float
-	## cardinality = 0..1
-	combat_entrenchment = float
-	## cardinality = 0..1
-	org_damage_multiplier = float
-	## cardinality = 0..1
-	str_damage_multiplier = float
-	## cardinality = 0..1
-	war_support_reduction_on_damage = float
-	## cardinality = 0..1
-	cannot_retreat_while_attacking = float
-	## cardinality = 0..1
-	cannot_retreat_while_defending = float
-	## cardinality = 0..1
-	days = int
-	## cardinality = 0..1
-	tooltip = localisation
-}
-
 ### Boost planning of units that are belongs to the army group/navy of this unit leader.
 alias[effect:boost_planning] = float
 
@@ -2643,7 +2616,7 @@ alias[effect:remove_targeted_decision] = {
 ### Modify amount of days of a timed idea.
 ## scope = country
 alias[effect:modify_timed_idea] = {
-	idea = enum[idea_name]
+	idea = <idea>
 	idea = value[variable]
 	## cardinality = 0..1
 	days = int_variable_field

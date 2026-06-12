@@ -18,6 +18,10 @@ ability = {
 
 	type = enum[ability_unit_leader_types]
 
+	### default no
+	## cardinality = 0..1
+	requires_deployed_hq = bool
+
 	## cardinality = 0..1
 	allowed = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -33,10 +37,7 @@ ability = {
 		alias_name[modifier] = alias_match_left[modifier]
 		alias_name[unit_stat] = alias_match_left[unit_stat]
 	}
-	## cardinality = 0..1
-	one_time_effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+
 	## cardinality = 0..1
 	cancelable = bool
 

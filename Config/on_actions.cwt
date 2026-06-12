@@ -1153,6 +1153,13 @@ on_action = {
 	## cardinality = 0..inf
 	## replace_scope = { ROOT = contract this = contract }
 	on_contract_cancelled = single_alias_right[on_action_effect]
+
+	# ------------taog on actions ------------
+	
+	### From is the country that captured
+	## cardinality = 0..inf
+	## replace_scope = { ROOT = character this = country FROM = country }
+	on_deployed_leader_defeated  = single_alias_right[on_action_effect]
 }
 
 single_alias[country_event_effect] = {

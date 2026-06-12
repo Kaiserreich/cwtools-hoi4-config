@@ -17,6 +17,7 @@ enums = {
 		"Expansion Pass 1: Supporter Pack"
 		"No Compromise, No Surrender"
 		"Peace For Our Time"
+		"Thunder at Our Gates"
 	}
 
 	enum[tech_bonus] = {

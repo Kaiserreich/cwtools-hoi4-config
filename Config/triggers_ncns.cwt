@@ -611,6 +611,13 @@ alias[trigger:any_other_country_with_original_tag_of] = {
 ## scope = { character unit_leader }
 alias[trigger:is_leading_army_in_province] = enum[provinces]
 
+### checks if the current unit leader is leading an army that has any division in a specific province
+## scope = { character unit_leader }
+alias[trigger:is_leading_army_in_province] = {
+	province = enum[provinces]
+	include_field_marshal = bool
+}
+
 ### Checks if the country has reached the specified number of mastery levels (rewards) for the given subdoctrine
 ## scope = { country }
 alias[trigger:has_mastery_level] = {

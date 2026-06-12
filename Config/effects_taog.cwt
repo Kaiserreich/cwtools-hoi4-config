@@ -1,0 +1,46 @@
+### Releases the scoped army leader from captivity. Has no effect if the leader is not captured.
+## scope = character
+alias[effect:release_from_captivity] = bool
+
+
+### Unlocks the specified subunit for the country.
+## scope = country
+alias[effect:unlock_subunit] = <unit>
+
+
+### Makes the scoped country release all captured generals from the specified country kept in the specified province.
+### If no province is specified, all generals are released.
+## scope = country
+alias[effect:release_captured_generals_from] = scope[country]
+### Makes the scoped country release all captured generals from the specified country kept in the specified province.
+### If no province is specified, all generals are released.
+## scope = country
+alias[effect:release_captured_generals_from] = enum[country_tags]
+### Makes the scoped country release all captured generals from the specified country kept in the specified province.
+### If no province is specified, all generals are released.
+## scope = country
+alias[effect:release_captured_generals_from] = {
+	target = scope[country]
+	target = enum[country_tags]
+	## cardinality 0..1
+	province = <province> (optional)
+}
+
+
+### Make the Unit Leader in scope be captured by the specified country (needs to be a general).
+### Optionally specify the province where the leader is held captive.
+## scope = character
+alias[effect:capture_by] = scope[country]
+### Make the Unit Leader in scope be captured by the specified country (needs to be a general).
+### Optionally specify the province where the leader is held captive.
+## scope = character
+alias[effect:capture_by] = enum[country_tags]
+### Make the Unit Leader in scope be captured by the specified country (needs to be a general).
+### Optionally specify the province where the leader is held captive.
+## scope = character
+alias[effect:capture_by] = {
+	target = scope[country]
+	target = enum[country_tags]
+	## cardinality 0..1
+	province = <province> (optional)
+}
