@@ -13,6 +13,11 @@ bookmark = {
 	default_country = enum[country_tags]
 
 	## cardinality = 0..1
+	filters = { 
+		## cardinality = ~0..inf
+		scalar
+	}
+	## cardinality = 0..1
 	default = bool
 
 	## cardinality = 7..inf
@@ -21,12 +26,24 @@ bookmark = {
 		minor = yes
 
 		history = localisation
+		## cardinality = 0..1
+		required_dlc  = { 
+			## cardinality = ~1..inf
+			enum[dlc] 
+		}
 		ideology = <ideology>
+		version = enum[game_version]
 
 		## cardinality = 0..1
-		new_content = yes
+		label = {
+			## cardinality = ~1..inf
+			scalar
+		}
+
 		## cardinality = 0..1
-		override_leader_portrait = <spriteType>
+		assume_not_played_if_missing_data = bool
+		## cardinality = 0..1
+		override_leader_portrait = <character>
 
 		## cardinality = 0..1
 		available = {
@@ -37,7 +54,7 @@ bookmark = {
 		## cardinality = 0..1
 		ideas = {
 			## cardinality = ~1..inf
-			enum[idea_name]
+			<idea>
 		}
 
 		## cardinality = 0..1
@@ -63,4 +80,25 @@ bookmark = {
 		randomize_weather = 22345
 	}
 
+}
+
+enums = {
+	enum[game_version] = {
+		base_game
+		together_for_victory
+		death_or_dishonor
+		waking_the_tiger
+		man_the_guns
+		la_resistance
+		battle_for_the_bosporus
+		no_step_back
+		by_blood_alone
+		arms_against_tyranny
+		trial_of_allegiance
+		gotterdammerung
+		graveyard_of_empires
+		no_compromise_no_surrender
+		peace_for_our_time
+		thunder_at_our_gates
+	}
 }

@@ -111,6 +111,9 @@ unit_leader_trait = {
 		### Bonus for gaining this skill.
 		## cardinality = 0..4
 		enum[army_leader_skill_factors] = int
+
+		## cardinality = 0..1
+		leader_default_proximity_offset  = int[-1..2]
 	}
 	subtype[land_naval_commander] = {
 		### Bonus for gaining this skill.

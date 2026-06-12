@@ -165,15 +165,14 @@ focus_tree = {
 
 		## cardinality = ~1..inf
 		icon = {
-			## cardinality = 0..1
+			## cardinality = ~1..inf
 			## replace_scope = { root = country this = country }
-			trigger = {
+			<spriteType> = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-
-			## cardinality = ~1..1
-			value = <spriteType>
+			## cardinality = 0..1
+			<spriteType> = yes
 		}
 
 		### A cost of 1 represents a week by default. Decimals within cost are supported, and it will get rounded down to a whole day in the game. 
@@ -387,15 +386,14 @@ focus_tree = {
 
 		## cardinality = ~1..inf
 		icon = {
-			## cardinality = 0..1
+			## cardinality = ~1..inf
 			## replace_scope = { root = country this = country }
-			trigger = {
+			<spriteType> = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-
-			## cardinality = ~1..1
-			value = <spriteType>
+			## cardinality = 0..1
+			<spriteType> = yes
 		}
 
 		### A cost of 1 represents a week by default. Decimals within cost are supported, and it will get rounded down to a whole day in the game. 
@@ -600,13 +598,14 @@ shared_focus = {
 	icon = <spriteType>
 	## cardinality = 0..inf
 	icon = {
-		## cardinality = 0..1
+		## cardinality = ~1..inf
 		## replace_scope = { root = country this = country }
-		trigger = {
-			## cardinality = 0..inf
+		<spriteType> = {
+			## cardinality = ~1..inf
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		value = <spriteType>
+		## cardinality = 0..1
+		<spriteType> = yes
 	}
 	## cardinality = 0..1
 	overlay = <spriteType>
@@ -847,15 +846,14 @@ continous_focus_tree = {
 
 		## cardinality = ~1..inf
 		icon = {
-			## cardinality = 0..1
+			## cardinality = ~1..inf
 			## replace_scope = { root = country this = country }
-			trigger = {
+			<spriteType> = {
 				## cardinality = ~1..inf
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-
-			## cardinality = ~1..1
-			value = <spriteType>
+			## cardinality = 0..1
+			<spriteType> = yes
 		}
 
 		### The cost in daily political power gain to take this focus compared to not having any focus selected
@@ -892,7 +890,7 @@ continous_focus_tree = {
 		}
 
 		## cardinality = 0..1
-		idea = enum[idea_name]
+		idea = <idea>
 
 		## cardinality = 0..1
 		## replace_scope = { root = country this = country }

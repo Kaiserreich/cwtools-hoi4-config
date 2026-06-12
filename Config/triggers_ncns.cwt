@@ -1,17 +1,17 @@
 # markdown resolves from bottom to top, todo also make it prettier?
 ### }
-### &nbsp;&nbsp;&nbsp;&nbsp;Note: extracted and buildings are mutually exclusive
-### &nbsp;&nbsp;&nbsp;&nbsp;buildings = no # (optional, default: no) checks only amount from local buildings instead of country balance
-### &nbsp;&nbsp;&nbsp;&nbsp;extracted = yes # (optional, default: no) checks extracted amount instead of country balance
-### &nbsp;&nbsp;&nbsp;&nbsp;amount > 10
-### &nbsp;&nbsp;&nbsp;&nbsp;resource = chromium
-### &nbsp;&nbsp;&nbsp;&nbsp;}
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operators =  { country_and_all_subjects }
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game:scope
+### &nbsp;&nbsp;&nbsp;&nbsp;Note: extracted and buildings are mutually exclusive  
+### &nbsp;&nbsp;&nbsp;&nbsp;buildings = no # (optional, default: no) checks only amount from local buildings instead of country balance  
+### &nbsp;&nbsp;&nbsp;&nbsp;extracted = yes # (optional, default: no) checks extracted amount instead of country balance  
+### &nbsp;&nbsp;&nbsp;&nbsp;amount > 10  
+### &nbsp;&nbsp;&nbsp;&nbsp;resource = chromium  
+### &nbsp;&nbsp;&nbsp;&nbsp;}  
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operators =  { country_and_all_subjects }  
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game:scope  
 ### &nbsp;&nbsp;&nbsp;&nbsp;collection = {  # you can also pass existing collection instead of delcaring anonymous one here
-### has_resources_in_collection = {
-### Example:
-### Checks for amount of resources in a given collection.
+### has_resources_in_collection = {  
+### Example:  
+### Checks for amount of resources in a given collection.	
 ## scope = country
 alias[trigger:has_resources_in_collection] = {
 	### A reference to another collection that will be used as input
@@ -69,7 +69,7 @@ alias[trigger:has_mastery] = {
 	track = <doctrine_track>
 }
 
-### Example: has_tactic = tactic_grand_banzai_charge
+### Example: has_tactic = tactic_grand_banzai_charge 
 ### Checks if the country has access to a Tactic
 ## scope = country
 alias[trigger:has_tactic] = <combat_tactic>
@@ -82,25 +82,25 @@ alias[trigger:can_assign_supportive_scientist_to_faction] = <specialization>
 
 ### - Another option is to use the capital state of the tag. *FROM = { is_on_same_continent_as = 111 }*
 ### - Can use country scope. Example *GER = { is_on_same_continent_as = ITA }*
-### Checks if the scope state is on the same continent as the given state.
+### Checks if the scope state is on the same continent as the given state. 
 ## scope = { country state }
 alias[trigger:is_on_same_continent_as] = scope[country]
 
 ### - Another option is to use the capital state of the tag. *FROM = { is_on_same_continent_as = 111 }*
 ### - Can use country scope. Example *GER = { is_on_same_continent_as = ITA }*
-### Checks if the scope state is on the same continent as the given state.
+### Checks if the scope state is on the same continent as the given state. 
 ## scope = { country state }
 alias[trigger:is_on_same_continent_as] = enum[country_tags]
 
 ### - Another option is to use the capital state of the tag. *FROM = { is_on_same_continent_as = 111 }*
 ### - Can use country scope. Example *GER = { is_on_same_continent_as = ITA }*
-### Checks if the scope state is on the same continent as the given state.
+### Checks if the scope state is on the same continent as the given state. 
 ## scope = { country state }
 alias[trigger:is_on_same_continent_as] = <state>
 
 ### - Another option is to use the capital state of the tag. *FROM = { is_on_same_continent_as = 111 }*
 ### - Can use country scope. Example *GER = { is_on_same_continent_as = ITA }*
-### Checks if the scope state is on the same continent as the given state.
+### Checks if the scope state is on the same continent as the given state. 
 ## scope = { country state }
 alias[trigger:is_on_same_continent_as] = scope[state]
 
@@ -115,9 +115,9 @@ alias[trigger:is_on_same_continent_as] = scope[state]
 ### any_collection_element = {
 ### ```
 ### Example (anonymous collection):
-###
+### 
 ### Example: *any_collection_element = { collection:my_awesome_collection is_subject_of = ROOT }*
-###
+### 
 ### Checks if the triggers are true for any element in the collection. Supports both anonymous and regular collections
 ## scope = { any }
 ## push_scope = any
@@ -142,9 +142,9 @@ alias[trigger:any_collection_element] = {
 ### all_collection_elements = {
 ### ```
 ### Example (anonymous collection):
-###
+### 
 ### Example: *all_collection_elements = { collection:my_awesome_collection is_subject_of = ROOT }*
-###
+### 
 ### Checks if the triggers are true for all of the elements in the collection. Supports both anonymous and regular collections
 ## scope = { any }
 ## push_scope = any
@@ -206,7 +206,7 @@ alias[trigger:collection_contains] = {
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
 ### }
-###		size > 10
+###		size > 10 
 ### 	buildings = { industrial_complex } # If multiple buildings are passed, their sum will be checked
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
@@ -250,7 +250,7 @@ alias[trigger:count_in_collection] = {
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
 ### }
-###		size > 10
+###		size > 10 
 ### 	buildings = { industrial_complex } # If multiple buildings are passed, their sum will be checked
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
@@ -294,7 +294,7 @@ alias[trigger:count_in_collection] = {
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
 ### }
-###		size > 10
+###		size > 10 
 ### 	buildings = { industrial_complex } # If multiple buildings are passed, their sum will be checked
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
@@ -331,7 +331,7 @@ alias[trigger:count_in_collection] = {
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
 ### }
-###		size > 10
+###		size > 10 
 ### 	buildings = { industrial_complex } # If multiple buildings are passed, their sum will be checked
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
@@ -365,7 +365,7 @@ alias[trigger:count_in_collection] = {
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
 ### }
-###		size > 10
+###		size > 10 
 ### 	buildings = { industrial_complex } # If multiple buildings are passed, their sum will be checked
 ### 	collection = collection:my_awesome_collection
 ### count_in_collection = {
@@ -447,7 +447,7 @@ alias[trigger:has_completed_faction_goal] = <faction_goal>
 alias[trigger:has_faction_goal] = <faction_goal>
 
 ### Checks fulfillment of a faction goal for the current country's faction.
-###
+### 
 ### value > X, supports > and <, can accept variables, can be repeated multiple times
 ## scope = { country }
 alias[trigger:faction_goal_fulfillment] = {
@@ -487,8 +487,6 @@ alias[trigger:has_naval_control] = <strategic_region>
 ## push_scope = state
 alias[trigger:any_state_of] = {
 	## cardinality = 0..1
-	count = int
-	## cardinality = 0..1
 	tooltip = localisation
 	## cardinality = 0..1
 	tooltip = single_alias_right[bindable_loc]
@@ -527,7 +525,7 @@ alias[trigger:all_country_of] = {
 }
 
 ### Checks if the provided trigger is true for all countries that claims the state in scope.
-###
+### 
 ### `tooltip` supports bindable localization.
 ## scope = { state }
 ## push_scope = country
@@ -553,7 +551,7 @@ alias[trigger:any_country_of] = {
 }
 
 ### Checks if any country that has an original tag that matches any of the provided countries fulfill the specified triggers.
-###
+### 
 ### The `target` supports script constants and `tooltip` supports bindable localization.
 ## scope = { any }
 ## push_scope = country
@@ -613,6 +611,13 @@ alias[trigger:any_other_country_with_original_tag_of] = {
 ## scope = { character unit_leader }
 alias[trigger:is_leading_army_in_province] = enum[provinces]
 
+### checks if the current unit leader is leading an army that has any division in a specific province
+## scope = { character unit_leader }
+alias[trigger:is_leading_army_in_province] = {
+	province = enum[provinces]
+	include_field_marshal = bool
+}
+
 ### Checks if the country has reached the specified number of mastery levels (rewards) for the given subdoctrine
 ## scope = { country }
 alias[trigger:has_mastery_level] = {
@@ -669,7 +674,7 @@ alias[trigger:compare_ideology_with_faction] = {
 
 hidden_trigger = {
     tooltip_evaluation = eval
-    set_temp_variable = { unlock_compare = 0 }
+    set_temp_variable = { unlock_compare = 0 }            
     all_collection_elements = {
         collection = {
             input = game:scope
@@ -688,7 +693,7 @@ hidden_trigger = {
 ###            input = game:scope
 ###         collection = {
 ###     all_collection_elements = {
-###     set_temp_variable = { unlock_compare = 0 }
+###     set_temp_variable = { unlock_compare = 0 }  
 ###     tooltip_evaluation = eval
 ### hidden_trigger = {
 ### ```
@@ -715,7 +720,7 @@ alias[trigger:tooltip_evaluation] = eval
 ###            input = game:scope
 ###         collection = {
 ###     all_collection_elements = {
-###     set_temp_variable = { unlock_compare = 0 }
+###     set_temp_variable = { unlock_compare = 0 }  
 ###     tooltip_evaluation = eval
 ### hidden_trigger = {
 ### ```

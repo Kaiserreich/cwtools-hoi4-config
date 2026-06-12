@@ -307,9 +307,6 @@ alias[effect:raid_add_unit_experience] = variable_field
 ### scope = unit
 alias[effect:promote_officer_to_general] = bool
 
-# debug/test command?
-alias[effect:store_ref] = scalar
-
 ### Removes a contested owner to a state. The effect can be used either from a country or a state scope and accepts the other as parameter.
 ## scope = state
 alias[effect:remove_contested_owner] = scope[country]

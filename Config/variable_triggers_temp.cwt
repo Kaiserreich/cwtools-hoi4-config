@@ -28,6 +28,9 @@ alias[trigger:set_temp_variable] = {
 	#### This exists to cull unsupported values. Values above provide some autofill
 	## cardinality = 1..2
 	value_set[variable] = value_set[trashcan]
+
+	## cardinality 0..inf	
+	alias_name[mathexpr] = alias_match_left[mathexpr]
 	## cardinality = 0..1
 	tooltip = localisation
 }
@@ -48,8 +51,12 @@ alias[trigger:set_temp_variable] = {
 	value = token:<unit_leader_trait>
 	value = token:<module>
 	value = token:<building>
+	value = single_alias_right[mathexprnest]
 	#### This exists to cull unsupported values. Values above provide some autofill
 	value = scalar
+	
+	## cardinality 0..inf	
+	alias_name[mathexpr] = alias_match_left[mathexpr]
 	## cardinality = 0..1
 	tooltip = localisation
 }

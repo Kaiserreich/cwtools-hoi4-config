@@ -70,4 +70,15 @@ focus_inlay_window = {
 			}
 		}
 	}
+
+	### list of progressbars that should fill up based on a variable
+	## cardinality = 0..1
+	scripted_progressbars = {
+		### Name of the progressbar (must be an icon that is a a subcomponent of "gui_component_name" or a button, with a "progressbartype" as its spriteType)
+		## cardinality = ~1..inf
+		value[gui_element_name] = {
+			progress = variable_field
+		}
+
+	}
 }

@@ -1232,6 +1232,25 @@ modifiers = {
 	local_factory_energy_consumption_per_infrastructure = state
 	local_resource_gain_efficiency_per_infrastructure = state
 
+	#taog modifiers
+	army_non_core_attack_factor = aggressive
+	cannot_retreat_while_attacking = aggressive
+	army_non_core_attack_factor = army
+	army_non_core_defence_factor = army
+	cannot_retreat_while_attacking = army
+	cannot_retreat_while_defending = army
+	casualty_trickleback = army
+	combat_entrenchment = army
+	org_damage_multiplier = army
+	str_damage_multiplier = army
+	war_support_reduction_on_damage = army
+	army_non_core_defence_factor = defensive
+	cannot_retreat_while_defending = defensive
+	combat_entrenchment = defensive
+	org_damage_multiplier = defensive
+	str_damage_multiplier = defensive
+	war_support_reduction_on_damage = defensive
+
   ### the following modifers do not present in md doc (nsb patch)
 
 	air_advisor_cost_factor = country

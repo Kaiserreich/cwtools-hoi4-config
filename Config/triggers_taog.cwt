@@ -1,0 +1,132 @@
+### Checks if the current character can be captured while deployed in a division
+## scope = character
+alias[trigger:can_be_captured] = bool
+
+### Checks if the leader is visible to its owner (is_visible trigger in the leader's script)
+## scope = country
+alias[trigger:is_leader_visible] = scope[character]
+### Checks if the leader is visible to its owner (is_visible trigger in the leader's script)
+## scope = country
+alias[trigger:is_leader_visible] = <character>
+
+
+### Checks if the character is in a specific state.
+### Works for deployed generals (HQ location), scientists (facility location including faction programs), and operatives (mission location).
+## scope = character
+alias[trigger:is_in_state] = <state>
+
+### Checks if the character is in a specific state.
+### Works for deployed generals (HQ location), scientists (facility location including faction programs), and operatives (mission location).
+## scope = character
+alias[trigger:is_in_state] = scope[state]
+
+
+### Checks if the country was a member of a faction when a specific goal was completed.
+### Persists across faction disband/recreate, unlike has_completed_faction_goal.
+## scope = country
+alias[trigger:has_completed_goal] = <faction_goal>
+
+### Evaluates a math expression and writes the numeric result to the tooltip.
+## scope = any
+alias[trigger:debug_math_expr] = {
+	value = variable_field
+	## cardinality 0..inf	
+	alias_name[mathexpr] = alias_match_left[mathexpr]
+}
+
+
+### Checks if the scoped country has any unit leader captured by the target country
+## scope = country
+alias[trigger:has_any_general_captured_by] = scope[country]
+
+
+### Checks if the scoped unit leader (general) is captured (by any country)
+## scope = character
+alias[trigger:is_general_captured] = bool
+
+### Checks if any of the generals of the scoped country is captured by another country
+## scope = country
+alias[trigger:has_any_captured_general] = bool
+
+### Checks if a unit leader was promoted from a unit (division or ship).
+## scope = character
+alias[trigger:is_promoted_from_unit] = bool
+
+
+### Evaluates a math expression and returns true when the result is non-zero.
+alias[trigger:check_expr] = {
+	value = variable_field
+	## cardinality 0..inf	
+	alias_name[mathexpr] = alias_match_left[mathexpr]
+}
+
+
+# Math expression functions
+alias[mathexpr:multiply] = single_alias_right[mathexprnest]
+alias[mathexpr:multiply] = variable_field
+
+alias[mathexpr:add] = single_alias_right[mathexprnest]
+alias[mathexpr:add] = variable_field
+
+alias[mathexpr:subtract] = single_alias_right[mathexprnest]
+alias[mathexpr:subtract] = variable_field
+
+alias[mathexpr:divide] = single_alias_right[mathexprnest]
+alias[mathexpr:divide] = variable_field
+
+alias[mathexpr:min] = single_alias_right[mathexprnest]
+alias[mathexpr:min] = variable_field
+
+alias[mathexpr:max] = single_alias_right[mathexprnest]
+alias[mathexpr:max] = variable_field
+
+alias[mathexpr:clamp] = {
+	min = variable_field
+	max = variable_field
+}
+
+alias[mathexpr:greater_than] = single_alias_right[mathexprnest]
+alias[mathexpr:greater_than] = variable_field
+
+alias[mathexpr:less_than] = single_alias_right[mathexprnest]
+alias[mathexpr:less_than] = variable_field
+
+alias[mathexpr:greater_than_or_equals] = single_alias_right[mathexprnest]
+alias[mathexpr:greater_than_or_equals] = variable_field
+
+alias[mathexpr:less_than_or_equals] = single_alias_right[mathexprnest]
+alias[mathexpr:less_than_or_equals] = variable_field
+
+alias[mathexpr:equals] = single_alias_right[mathexprnest]
+alias[mathexpr:equals] = variable_field
+
+alias[mathexpr:not_equals] = single_alias_right[mathexprnest]
+alias[mathexpr:not_equals] = variable_field
+
+alias[mathexpr:round] = bool
+
+alias[mathexpr:if] = {
+	limit = {
+		value = variable_field
+		## cardinality 0..inf
+		alias_name[mathexpr] = alias_match_left[mathexpr]
+	}
+	## cardinality 1..inf
+	alias_name[mathexpr] = alias_match_left[mathexpr]
+}
+alias[mathexpr:else] = {
+	## cardinality 1..inf
+	alias_name[mathexpr] = alias_match_left[mathexpr]
+}
+alias[mathexpr:every_collection] = {
+	named_collection = <collection>
+	## cardinality 1..inf
+	alias_name[mathexpr] = alias_match_left[mathexpr]
+}
+
+
+single_alias[mathexprnest] = {
+	value = variable_field
+	## cardinality 0..inf
+	alias_name[mathexpr] = alias_match_left[mathexpr]
+}
