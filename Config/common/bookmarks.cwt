@@ -32,7 +32,8 @@ bookmark = {
 			enum[dlc] 
 		}
 		ideology = <ideology>
-		version = enum[game_version]
+		## cardinality = 0..1
+		version = scalar
 
 		## cardinality = 0..1
 		label = {
@@ -80,25 +81,4 @@ bookmark = {
 		randomize_weather = 22345
 	}
 
-}
-
-enums = {
-	enum[game_version] = {
-		base_game
-		together_for_victory
-		death_or_dishonor
-		waking_the_tiger
-		man_the_guns
-		la_resistance
-		battle_for_the_bosporus
-		no_step_back
-		by_blood_alone
-		arms_against_tyranny
-		trial_of_allegiance
-		gotterdammerung
-		graveyard_of_empires
-		no_compromise_no_surrender
-		peace_for_our_time
-		thunder_at_our_gates
-	}
 }
