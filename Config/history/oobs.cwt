@@ -41,6 +41,14 @@ single_alias[division_template_clause] = {
 		}
 	}
 	## cardinality = 0..1
+	regimental_support = {
+		## cardinality = ~1..inf
+		<unit.support_unit> = {
+			x = int[0..4]
+			y = int[0..4]
+		}
+	}
+	## cardinality = 0..1
 	template_counter = int
 	## cardinality = 0..1
 	priority = int
