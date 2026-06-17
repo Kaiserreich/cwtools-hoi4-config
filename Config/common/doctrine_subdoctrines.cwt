@@ -38,6 +38,10 @@ subdoctrine = {
 	}
 
 	track = <doctrine_track>
+	track = {
+		## cardinality = ~1..inf
+		<doctrine_track>
+	}
 	name = localisation
 	description = localisation
 	icon = <spriteType>
