@@ -85,10 +85,14 @@ alias[mathexpr:clamp] = {
 	max = variable_field
 }
 
+### Returns 1 if the accumulator is greater than the value, otherwise 0.
 alias[mathexpr:greater_than] = single_alias_right[mathexprnest]
+### Returns 1 if the accumulator is greater than the value, otherwise 0.
 alias[mathexpr:greater_than] = variable_field
 
+### Returns 1 if the accumulator is less than the value, otherwise 0.
 alias[mathexpr:less_than] = single_alias_right[mathexprnest]
+### Returns 1 if the accumulator is less than the value, otherwise 0.
 alias[mathexpr:less_than] = variable_field
 
 alias[mathexpr:greater_than_or_equals] = single_alias_right[mathexprnest]
@@ -103,7 +107,44 @@ alias[mathexpr:equals] = variable_field
 alias[mathexpr:not_equals] = single_alias_right[mathexprnest]
 alias[mathexpr:not_equals] = variable_field
 
+### Rounds the accumulator to the nearest integer.
 alias[mathexpr:round] = bool
+
+### Sets the accumulator to its logarithm in the given base.
+### Note: this is computed with a numerical approximation and may produce small rounding errors (e.g. 3.00001 instead of 3). Follow with `round = yes` if you need an exact integer result
+alias[mathexpr:log] = single_alias_right[mathexprnest]
+### Sets the accumulator to its logarithm in the given base.
+### Note: this is computed with a numerical approximation and may produce small rounding errors (e.g. 3.00001 instead of 3). Follow with `round = yes` if you need an exact integer result
+alias[mathexpr:log] = variable_field
+
+### Sets the accumulator to the remainder of dividing it by the value.
+alias[mathexpr:mod] = single_alias_right[mathexprnest]
+### Sets the accumulator to the remainder of dividing it by the value.
+alias[mathexpr:mod] = variable_field
+
+
+### Raises the accumulator to the given power.
+### Integer exponents are computed exactly by repeated multiplication. Fractional exponents (e.g. `pow = 0.5`) use a numerical approximation and may produce small rounding errors; follow with `round = yes` if you need an exact integer result.
+alias[mathexpr:pow] = single_alias_right[mathexprnest]
+### Raises the accumulator to the given power.
+### Integer exponents are computed exactly by repeated multiplication. Fractional exponents (e.g. `pow = 0.5`) use a numerical approximation and may produce small rounding errors; follow with `round = yes` if you need an exact integer result.
+alias[mathexpr:pow] = variable_field
+
+### Takes the root of the accumulator. The argument is the degree of the root, so 2 gives the square root, 3 the cube root and so on.
+### Note: this is a numerical approximation and may produce small rounding errors (e.g. 4.00001 instead of 4). Follow with `round = yes` if you need an exact integer result.
+alias[mathexpr:root] = single_alias_right[mathexprnest]
+### Takes the root of the accumulator. The argument is the degree of the root, so 2 gives the square root, 3 the cube root and so on.
+### Note: this is a numerical approximation and may produce small rounding errors (e.g. 4.00001 instead of 4). Follow with `round = yes` if you need an exact integer result.
+alias[mathexpr:root] = variable_field
+
+### Sets the accumulator to the sine of itself. The angle is expressed in radians.
+alias[mathexpr:sin] = bool
+
+### Sets the accumulator to the cosine of itself. The angle is expressed in radians.
+alias[mathexpr:cos] = bool
+
+### Sets the accumulator to the tangent of itself. The angle is expressed in radians.
+alias[mathexpr:tan] = bool
 
 alias[mathexpr:if] = {
 	limit = {
