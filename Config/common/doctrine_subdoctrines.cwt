@@ -57,6 +57,12 @@ subdoctrine = {
 	}
 
 	## cardinality = 0..1
+	xor = {
+		## cardinality = ~1..inf
+		<subdoctrine>
+	}
+
+	## cardinality = 0..1
 	ai_will_do = {
 		## cardinality = ~1..1
 		enum[base_factor] = float
