@@ -411,6 +411,7 @@ alias[effect:white_peace] = {
 ### A conditional effect.
 ## scope = any
 alias[effect:if] = {
+	## severity = error
 	limit = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -419,6 +420,7 @@ alias[effect:if] = {
 
 ### Use after (else_)if to check other triggers only if first if fails.
 alias[effect:else_if] = {
+	## severity = error
 	limit = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
