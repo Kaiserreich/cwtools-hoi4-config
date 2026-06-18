@@ -104,6 +104,14 @@ unit_leader_trait = {
 	}
 	## cardinality = 0..1
 	trait_type = enum[trait_types]
+
+	## push_scope = country
+	## cardinality = 0..1
+	country_trigger = {
+		## cardinality = ~1..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
 	subtype[land_commander] = {
 		## cardinality = 0..4
 		### Direct bonus to this skill.
@@ -137,6 +145,12 @@ unit_leader_trait = {
 		### Bonus for gaining this skill.
 		## cardinality = 0..4
 		enum[naval_leader_skill_factors] = int
+
+		## cardinality = 0..1
+		allowed_ship_equipments = {
+			## cardinality = ~1..inf
+			<equipment.naval_equip>
+		}
 	}
 	subtype[gainable_trait] = {
 		## replace_scope = { this = combat root = combat from = combat }

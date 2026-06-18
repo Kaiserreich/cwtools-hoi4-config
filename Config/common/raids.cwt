@@ -188,6 +188,8 @@ raid = {
             alias_name[trigger] = alias_match_left[trigger]
 
         }
+        ## cardinality = 0..1
+        captured_army_leader = yes
     }
 
     # Conditions on the starting point:

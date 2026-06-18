@@ -128,7 +128,7 @@ spriteType = {
 		size = { x = int y = int }
 		horizontal = bool
 		color = {
-			## cardinality = 3..3
+			## cardinality = 3..4
 			float
 		}
 		colortwo = {
