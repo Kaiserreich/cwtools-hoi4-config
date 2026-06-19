@@ -587,6 +587,11 @@ alias[effect:add_units_to_division_template] = {
 		## cardinality = ~1..5
 		<unit.support_unit> = int[0..4]
 	}
+	## cardinality = 0..1
+	regimental_support = {
+		## cardinality = ~1..5
+		<unit.support_unit> = int[0..4]
+	}
 }
 
 ### Change the ideology of active leader.
