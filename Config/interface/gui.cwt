@@ -747,7 +747,7 @@ alias[gui_image:spriteType] = <spriteType>
 # Bugged vanilla gfx definition, do not remove
 alias[gui_image:spriteType] = "GFX_power_balance_left"
 alias[gui_image:spriteType] = "GFX_power_balance_right"
-### Tiliing Sprite
+### Tiling Sprite
 alias[gui_image:quadTextureSprite] = <spriteType>
 # Bugged vanilla gfx definition, do not remove
 alias[gui_image:quadTextureSprite] = "GFX_bop_glow_effect"
