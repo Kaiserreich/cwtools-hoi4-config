@@ -1211,6 +1211,9 @@ alias[effect:start_civil_war] = {
 	### The capital of the breakaway country.
 	## cardinality = 0..1
 	capital = <state>
+	### The capital of the breakaway country.
+	## cardinality = 0..1
+	capital = value[variable]
 	### States that go to the revolter. Use "all" to include all states.
 	## cardinality = 0..1
 	states = {

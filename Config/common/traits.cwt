@@ -237,6 +237,18 @@ unit_leader_trait = {
 	trait_xp_factor = {
 		## cardinality = 1..inf
 		<unit_leader_trait> = float
+	}	
+	## cardinality = 0..1
+	## replace_scope = { ROOT = unit_leader THIS = unit_leader }
+	on_add = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	## replace_scope = { ROOT = unit_leader THIS = unit_leader }
+	on_remove = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
 	ai_will_do = {
