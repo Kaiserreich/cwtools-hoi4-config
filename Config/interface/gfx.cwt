@@ -132,7 +132,7 @@ spriteType = {
 			float
 		}
 		colortwo = {
-			## cardinality = 3..3
+			## cardinality = 3..4
 			float
 		}
 		steps = int

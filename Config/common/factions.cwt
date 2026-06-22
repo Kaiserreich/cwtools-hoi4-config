@@ -528,6 +528,7 @@ faction_template = {
 		# NOTE : Can be a DB reference or an inline definition
 	}
 
+	## cardinality = 0..1
 	default_rules = {
 		## cardinality = ~1..inf
 		<faction_rule>

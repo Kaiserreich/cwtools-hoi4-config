@@ -270,6 +270,7 @@ ai_equipment_design_group = {
 	}
 
 	### Base priority for creating a design in this group or for creating or upgrading equipment to use one of these designs. A higher number means higher priority.
+	## cardinality = 0..1
 	priority = {
 		## cardinality = 0..1
 		enum[base_factor] = float
