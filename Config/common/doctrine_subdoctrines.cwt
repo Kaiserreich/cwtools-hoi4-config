@@ -84,7 +84,7 @@ subdoctrine = {
 	### Do not use add_equipment_bonus since its effect will not remove bonus if doctrine is changed
 	###
 	### Add equipment bonuses
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	equipment_bonus = {
 		## cardinality = 0..inf
 		enum[equipment_bonus_type] = {
@@ -157,7 +157,7 @@ subdoctrine = {
 			### Do not use add_equipment_bonus since its effect will not remove bonus if doctrine is changed
 			###
 			### Add equipment bonuses
-			## cardinality = 0..1
+			## cardinality = 0..inf
 			equipment_bonus = {
 				## cardinality = 0..inf
 				enum[equipment_bonus_type] = {
