@@ -227,6 +227,10 @@ unit = {
 	### Weighting for mixed divisions.
 	priority = int
 
+	## cardinality = 0..1
+	### Priority for which 3d model shows on the map.
+	division_3d_model_priority = int
+
 	### Whether needs tech to create.
 	active = bool
 
