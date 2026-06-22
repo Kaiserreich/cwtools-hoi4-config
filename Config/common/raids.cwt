@@ -353,7 +353,7 @@ single_alias[raid_outcome] = {
 
         # And also use the dynamic variables to change scope (see the variable list below)
         ## push_scope = country
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
 		var:actor_country = {
             ## cardinality = ~1..inf
             alias_name[effect] = alias_match_left[effect]
@@ -369,14 +369,14 @@ single_alias[raid_outcome] = {
         alias_name[effect] = alias_match_left[effect]
 
         ## push_scope = country
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         var:victim_country = {
             ## cardinality = ~1..inf
             alias_name[effect] = alias_match_left[effect]
         }
 
         ## push_scope = state
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         var:target_state = {
             ## cardinality = ~1..inf
             alias_name[effect] = alias_match_left[effect]

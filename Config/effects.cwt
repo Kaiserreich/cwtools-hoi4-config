@@ -3214,7 +3214,7 @@ alias[effect:while_loop_effect] = {
 alias[effect:meta_effect] = {
 	text = ignore_field
 	## cardinality = 1..inf
-	scalar = localisation
+	scalar = scalar
 }
 
 ### Launch nuke at a state. usage .
