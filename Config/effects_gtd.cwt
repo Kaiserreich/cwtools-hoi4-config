@@ -184,17 +184,18 @@ alias[effect:complete_special_project] = {
 ### Generate a new character with a scientist role and recruit it in the country in scope.
 ## scope = country
 alias[effect:generate_scientist_character] = {
+	### optional - random portrait by default
 	## cardinality = 0..1
-    portrait = GFX_portrait # optional - random portrait by default
+    portrait = GFX_portrait
+    ### optional - accepts variable and keyword - only relevant if using random portrait - by default use country in scope
 	## cardinality = 0..1
-    portrait_tag_override = scope[country] # optional - accepts variable and keyword - only relevant if using random portrait - by default use country in scope
+    portrait_tag_override = scope[country]
+    ### optional - by default random gender
 	## cardinality = 0..1
-    gender = enum[gender] # optional - by default random gender
+    gender = enum[gender]
+    ### Set the skill level for a newly generated scientist character. Optional array, same format as in scientist role in character DB, by default all skills are at 1.
 	## cardinality = 0..1
     skills = {
-        # optional array
-        # same format as in scientist role in character DB
-        # by default all skills are at 1
 	    ## cardinality = ~1..inf
         <specialization> = int
     }
