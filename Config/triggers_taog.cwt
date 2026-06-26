@@ -159,6 +159,7 @@ alias[mathexpr:else] = {
 	## cardinality 1..inf
 	alias_name[mathexpr] = alias_match_left[mathexpr]
 }
+### Iterates over a named collection, applying statements to the accumulator for each element.
 alias[mathexpr:every_collection] = {
 	named_collection = <collection>
 	## cardinality 1..inf
