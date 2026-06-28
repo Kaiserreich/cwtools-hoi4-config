@@ -28,11 +28,7 @@ alias[trigger:has_completed_goal] = <faction_goal>
 
 ### Evaluates a math expression and writes the numeric result to the tooltip.
 ## scope = any
-alias[trigger:debug_math_expr] = {
-	value = variable_field
-	## cardinality 0..inf	
-	alias_name[mathexpr] = alias_match_left[mathexpr]
-}
+alias[trigger:debug_math_expr] = math_expr
 
 
 ### Checks if the scoped country has any unit leader captured by the target country
@@ -54,88 +50,70 @@ alias[trigger:is_promoted_from_unit] = bool
 
 
 ### Evaluates a math expression and returns true when the result is non-zero.
-alias[trigger:check_expr] = {
-	value = variable_field
-	## cardinality 0..inf	
-	alias_name[mathexpr] = alias_match_left[mathexpr]
-}
+alias[trigger:check_expr] = math_expr
 
 
 # Math expression functions
-alias[mathexpr:multiply] = single_alias_right[mathexprnest]
-alias[mathexpr:multiply] = variable_field
+alias[mathexpr:multiply] = math_expr
 
-alias[mathexpr:add] = single_alias_right[mathexprnest]
-alias[mathexpr:add] = variable_field
+alias[mathexpr:add] = math_expr
 
-alias[mathexpr:subtract] = single_alias_right[mathexprnest]
-alias[mathexpr:subtract] = variable_field
+alias[mathexpr:subtract] = math_expr
 
-alias[mathexpr:divide] = single_alias_right[mathexprnest]
-alias[mathexpr:divide] = variable_field
+alias[mathexpr:divide] = math_expr
 
-alias[mathexpr:min] = single_alias_right[mathexprnest]
-alias[mathexpr:min] = variable_field
+alias[mathexpr:min] = math_expr
 
-alias[mathexpr:max] = single_alias_right[mathexprnest]
-alias[mathexpr:max] = variable_field
+alias[mathexpr:max] = math_expr
 
 alias[mathexpr:clamp] = {
+	## cardinality = 0..1
 	min = variable_field
+	## cardinality = 0..1
 	max = variable_field
 }
 
 ### Returns 1 if the accumulator is greater than the value, otherwise 0.
-alias[mathexpr:greater_than] = single_alias_right[mathexprnest]
+alias[mathexpr:greater_than] = math_expr
 ### Returns 1 if the accumulator is greater than the value, otherwise 0.
-alias[mathexpr:greater_than] = variable_field
 
 ### Returns 1 if the accumulator is less than the value, otherwise 0.
-alias[mathexpr:less_than] = single_alias_right[mathexprnest]
+alias[mathexpr:less_than] = math_expr
 ### Returns 1 if the accumulator is less than the value, otherwise 0.
-alias[mathexpr:less_than] = variable_field
 
-alias[mathexpr:greater_than_or_equals] = single_alias_right[mathexprnest]
-alias[mathexpr:greater_than_or_equals] = variable_field
+alias[mathexpr:greater_than_or_equals] = math_expr
 
-alias[mathexpr:less_than_or_equals] = single_alias_right[mathexprnest]
-alias[mathexpr:less_than_or_equals] = variable_field
+alias[mathexpr:less_than_or_equals] = math_expr
 
-alias[mathexpr:equals] = single_alias_right[mathexprnest]
-alias[mathexpr:equals] = variable_field
+alias[mathexpr:equals] = math_expr
 
-alias[mathexpr:not_equals] = single_alias_right[mathexprnest]
-alias[mathexpr:not_equals] = variable_field
+alias[mathexpr:not_equals] = math_expr
 
 ### Rounds the accumulator to the nearest integer.
 alias[mathexpr:round] = bool
 
 ### Sets the accumulator to its logarithm in the given base.
 ### Note: this is computed with a numerical approximation and may produce small rounding errors (e.g. 3.00001 instead of 3). Follow with `round = yes` if you need an exact integer result
-alias[mathexpr:log] = single_alias_right[mathexprnest]
+alias[mathexpr:log] = math_expr
 ### Sets the accumulator to its logarithm in the given base.
 ### Note: this is computed with a numerical approximation and may produce small rounding errors (e.g. 3.00001 instead of 3). Follow with `round = yes` if you need an exact integer result
-alias[mathexpr:log] = variable_field
 
 ### Sets the accumulator to the remainder of dividing it by the value.
-alias[mathexpr:mod] = single_alias_right[mathexprnest]
+alias[mathexpr:mod] = math_expr
 ### Sets the accumulator to the remainder of dividing it by the value.
-alias[mathexpr:mod] = variable_field
 
 
 ### Raises the accumulator to the given power.
 ### Integer exponents are computed exactly by repeated multiplication. Fractional exponents (e.g. `pow = 0.5`) use a numerical approximation and may produce small rounding errors; follow with `round = yes` if you need an exact integer result.
-alias[mathexpr:pow] = single_alias_right[mathexprnest]
+alias[mathexpr:pow] = math_expr
 ### Raises the accumulator to the given power.
 ### Integer exponents are computed exactly by repeated multiplication. Fractional exponents (e.g. `pow = 0.5`) use a numerical approximation and may produce small rounding errors; follow with `round = yes` if you need an exact integer result.
-alias[mathexpr:pow] = variable_field
 
 ### Takes the root of the accumulator. The argument is the degree of the root, so 2 gives the square root, 3 the cube root and so on.
 ### Note: this is a numerical approximation and may produce small rounding errors (e.g. 4.00001 instead of 4). Follow with `round = yes` if you need an exact integer result.
-alias[mathexpr:root] = single_alias_right[mathexprnest]
+alias[mathexpr:root] = math_expr
 ### Takes the root of the accumulator. The argument is the degree of the root, so 2 gives the square root, 3 the cube root and so on.
 ### Note: this is a numerical approximation and may produce small rounding errors (e.g. 4.00001 instead of 4). Follow with `round = yes` if you need an exact integer result.
-alias[mathexpr:root] = variable_field
 
 ### Sets the accumulator to the sine of itself. The angle is expressed in radians.
 alias[mathexpr:sin] = bool
@@ -148,9 +126,24 @@ alias[mathexpr:tan] = bool
 
 alias[mathexpr:if] = {
 	limit = {
+		## cardinality = 0..1
 		value = variable_field
 		## cardinality 0..inf
 		alias_name[mathexpr] = alias_match_left[mathexpr]
+		## cardinality 0..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality 1..inf
+	alias_name[mathexpr] = alias_match_left[mathexpr]
+}
+alias[mathexpr:else_if] = {
+	limit = {
+		## cardinality = 0..1
+		value = variable_field
+		## cardinality 0..inf
+		alias_name[mathexpr] = alias_match_left[mathexpr]
+		## cardinality 0..inf
+		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality 1..inf
 	alias_name[mathexpr] = alias_match_left[mathexpr]
