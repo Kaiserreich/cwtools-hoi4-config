@@ -28,6 +28,8 @@ alias[effect:set_variable] = {
 	#### This exists to cull unsupported values. Values above provide some autofill
 	## cardinality = 1..2
 	value_set[variable] = scalar
+	## cardinality = 0..inf
+	value_set[variable] = math_expr
 
 	## cardinality 0..inf	
 	alias_name[mathexpr] = alias_match_left[mathexpr]
@@ -50,7 +52,7 @@ alias[effect:set_variable] = {
 	value = token:<unit_leader_trait>
 	value = token:<module>
 	value = token:<building>
-	value = single_alias_right[mathexprnest]
+	value = math_expr
 	#### This exists to cull unsupported values. Values above provide some autofill
 	value = scalar
 	## cardinality 0..inf	
@@ -90,7 +92,9 @@ alias[effect:divide_variable] = { # var_equals_value_clause
 	scope[country].value[variable] = variable_field
 	## cardinality = 1..2
 	scope[country].value[variable] = scalar
-	## cardinality 0..inf	
+	## cardinality = 0..inf
+	scope[country].value[variable] = math_expr
+	## cardinality 0..inf
 	alias_name[mathexpr] = alias_match_left[mathexpr]
 	## cardinality = 0..1
 	tooltip = localisation
@@ -104,6 +108,7 @@ alias[effect:divide_variable] = { # var_equals_value_clause
 alias[effect:divide_variable] = { # var_and_value_clause
 	var = value[variable]
 	value = variable_field
+	value = math_expr
 	#### This exists to cull unsupported values. Values above provide some autofill
 	value = scalar
 	## cardinality 0..inf	
