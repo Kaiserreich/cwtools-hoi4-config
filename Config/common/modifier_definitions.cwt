@@ -1,6 +1,9 @@
 types = {
     type[modifier_definition] = {
         path = "game/common/modifier_definitions"
+        subtype[unit_leader] = {
+            category = unit_leader
+        }
     }
 }
 
