@@ -347,6 +347,9 @@ single_alias[bindable_loc] = {
 ### Bindable loc singleline any = any
 alias[bindable_loc:scalar] = scalar
 
+### Binds a special project to the loc key (e.g. reminder/unlock tooltips). Needs an explicit entry because PROJECT collides with the project scope name and is skipped by the scalar wildcard.
+alias[bindable_loc:PROJECT] = <special_project>
+
 ### Bindable loc multiline
 alias[bindable_loc:scalar] = {
 	### Localisation multiline
