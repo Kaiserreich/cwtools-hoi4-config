@@ -108,9 +108,11 @@ alias[mathexpr:not_equals] = variable_field
 ### Returns 1 if the accumulator is zero, otherwise 0.
 alias[mathexpr:round] = bool
 
+### Combines the accumulator with the sub-expression as a logical AND (both non-zero gives 1, otherwise 0).
+alias[mathexpr:and] = math_expr
 
-### Rounds the accumulator to the nearest integer.
-alias[mathexpr:round] = bool
+### Combines the accumulator with the sub-expression as a logical OR (either non-zero gives 1, otherwise 0).
+alias[mathexpr:or] = math_expr
 
 ### Sets the accumulator to its logarithm in the given base.
 ### Note: this is computed with a numerical approximation and may produce small rounding errors (e.g. 3.00001 instead of 3). Follow with `round = yes` if you need an exact integer result
@@ -152,20 +154,6 @@ alias[mathexpr:atan] = bool
 ###N ote: this is computed with a numerical approximation and may be off by a few hundredths of a radian; follow with `round = yes` if you need an exact result. The degenerate case atan2(0, 0) returns roughly pi/2 rather than 0.
 alias[mathexpr:atan2] = bool
 
-### Returns 1 if both the accumulator and the value are non-zero, otherwise 0.
-### Short-circuits: the value is only evaluated when the accumulator is non-zero.
-alias[mathexpr:and] = single_alias_right[mathexprnest]
-### Returns 1 if both the accumulator and the value are non-zero, otherwise 0.
-### Short-circuits: the value is only evaluated when the accumulator is non-zero.
-alias[mathexpr:and] = variable_field
-
-### Returns 1 if either the accumulator or the value is non-zero, otherwise 0.
-### Short-circuits: the value is only evaluated when the accumulator is zero.
-alias[mathexpr:or] = single_alias_right[mathexprnest]
-### Returns 1 if either the accumulator or the value is non-zero, otherwise 0.
-### Short-circuits: the value is only evaluated when the accumulator is zero.
-alias[mathexpr:or] = variable_field
-
 ### Conditional statement that modifies the accumulator based on a condition.
 ### Note that the limit is a math expression. It is considered true if the value is anything but 0.
 alias[mathexpr:if] = {
@@ -188,17 +176,6 @@ alias[mathexpr:else_if] = {
 		alias_name[mathexpr] = alias_match_left[mathexpr]
 		## cardinality 0..inf
 		alias_name[trigger] = alias_match_left[trigger]
-	}
-	## cardinality 1..inf
-	alias_name[mathexpr] = alias_match_left[mathexpr]
-}
-### Conditional statement that modifies the accumulator based on a condition.
-### Note that the limit is a math expression. It is considered true if the value is anything but 0.
-alias[mathexpr:else_if] = {
-	limit = {
-		value = variable_field
-		## cardinality 0..inf
-		alias_name[mathexpr] = alias_match_left[mathexpr]
 	}
 	## cardinality 1..inf
 	alias_name[mathexpr] = alias_match_left[mathexpr]
