@@ -87,6 +87,12 @@ state = {
 	state_category = <state_category>
 	## cardinality = 0..1
 	impassable = yes
+	### Provinces whose ownership is tied to another state despite this state being impassable (examples - Amazonas/Sahara).
+	## cardinality = 0..1
+	impassable_ignored_links = {
+		## cardinality = 0..inf
+		enum[provinces]
+	}
 }
 
 state_category = {

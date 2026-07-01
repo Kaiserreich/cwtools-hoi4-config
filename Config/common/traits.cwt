@@ -105,6 +105,10 @@ unit_leader_trait = {
 	## cardinality = 0..1
 	trait_type = enum[trait_types]
 
+	### Whether the trait is shown in the combat view. Defaults to yes.
+	## cardinality = 0..1
+	show_in_combat = bool
+
 	## push_scope = country
 	## cardinality = 0..1
 	country_trigger = {

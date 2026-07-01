@@ -89,6 +89,12 @@ alias[mathexpr:equals] = math_expr
 
 alias[mathexpr:not_equals] = math_expr
 
+### Combines the accumulator with the sub-expression as a logical AND (both non-zero gives 1, otherwise 0).
+alias[mathexpr:and] = math_expr
+
+### Combines the accumulator with the sub-expression as a logical OR (either non-zero gives 1, otherwise 0).
+alias[mathexpr:or] = math_expr
+
 ### Rounds the accumulator to the nearest integer.
 alias[mathexpr:round] = bool
 

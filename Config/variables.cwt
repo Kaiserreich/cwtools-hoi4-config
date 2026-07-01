@@ -1,6 +1,16 @@
 values = {
 	value[variable] = {
 		# ========================
+		# LOOP VARIABLES
+		# ========================
+
+		### Default variable holding the current value in a for_each_loop iteration.
+		v
+
+		### Default variable holding the current index in a for_each_loop iteration.
+		i
+
+		# ========================
 		# GLOBAL DYNAMIC VARIABLES
 		# ========================
 
