@@ -1,0 +1,10 @@
+types = {
+	type[general_history] = {
+		path = "game/history/general"
+		type_per_file = yes
+	}
+}
+
+general_history = {
+	alias_name[effect] = alias_match_left[effect]
+}
