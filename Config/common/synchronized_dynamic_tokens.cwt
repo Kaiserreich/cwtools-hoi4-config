@@ -1,0 +1,13 @@
+types = {
+	type[synchronized_dynamic_token] = {
+		path = "game/common/synchronized_dynamic_tokens"
+		type_per_file = yes
+	}
+}
+
+### Whitelist of bare string tokens usable with dynamic loc formatters (e.g. `country_culture|<token>`)
+### and other multiplayer-safe dynamic lookups. One token per line, no key/value structure.
+synchronized_dynamic_token = {
+	## cardinality = 0..inf
+	scalar
+}

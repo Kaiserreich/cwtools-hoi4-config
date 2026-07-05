@@ -1,0 +1,119 @@
+types = {
+	type[scripted_diplomatic_action] = {
+		skip_root_key = scripted_diplomatic_actions
+		path = "game/common/scripted_diplomatic_actions"
+	}
+}
+
+## replace_scope = { root = country this = country }
+### root is the initiator of the action, this/PREV is the target country.
+### For effects/ai_will_do, root is the sender and this is the receiver.
+scripted_diplomatic_action = {
+	## cardinality = 0..1
+	allowed = {
+		## cardinality = ~1..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	visible = {
+		## cardinality = ~1..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	selectable = {
+		## cardinality = ~1..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	can_be_sent = {
+		## cardinality = ~1..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	can_be_accepted = {
+		## cardinality = ~1..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## cardinality = 0..1
+	requires_acceptance = bool
+	## cardinality = 0..1
+	cost = int
+	## cardinality = 0..1
+	command_power = int
+	### Loc override for a custom cost display
+	## cardinality = 0..1
+	cost_string = localisation
+	## cardinality = 0..1
+	show_acceptance_on_action_button = bool
+	### Icon frame used in the notification
+	## cardinality = 0..1
+	icon = int
+
+	## cardinality = 0..1
+	on_sent_effect = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	complete_effect = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	reject_effect = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
+	}
+
+	### Scripted gui shown before sending, in place of the plain yes/no popup
+	## cardinality = 0..1
+	send_scripted_gui = <scripted_gui>
+	## cardinality = 0..1
+	reset_send_effect = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	send_description = localisation
+
+	### Scripted gui shown to the receiver, in place of the plain yes/no popup
+	## cardinality = 0..1
+	receive_scripted_gui = <scripted_gui>
+	## cardinality = 0..1
+	reset_receive_effect = {
+		## cardinality = ~1..inf
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	receive_description = localisation
+
+	## cardinality = 0..1
+	accept_title = localisation
+	## cardinality = 0..1
+	accept_description = localisation
+	## cardinality = 0..1
+	reject_title = localisation
+	## cardinality = 0..1
+	reject_description = localisation
+
+	### Named ai_will_do entries deciding whether the AI accepts or rejects a request; the key is only used for loc
+	## cardinality = 0..1
+	ai_acceptance = {
+		## cardinality = 0..inf
+		scalar = {
+			## cardinality = 0..1
+			enum[base_factor] = variable_field
+			## cardinality = 0..inf
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+	}
+	### ai_will_do deciding whether the AI sends this action at all
+	## cardinality = 0..1
+	ai_desire = {
+		## cardinality = 0..1
+		enum[base_factor] = variable_field
+		## cardinality = 0..inf
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+}

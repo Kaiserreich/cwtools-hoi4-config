@@ -1,0 +1,15 @@
+types = {
+	## unique = yes
+	type[timed_activity] = {
+		path = "game/common/timed_activities"
+	}
+}
+
+### Equipment consumed by the activity (currently only stage_coup is used by the game)
+timed_activity = {
+	## cardinality = 0..1
+	equipment_need = {
+		## cardinality = 0..inf
+		<equipment> = int
+	}
+}

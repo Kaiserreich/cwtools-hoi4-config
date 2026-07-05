@@ -1,0 +1,104 @@
+types = {
+	type[ai_navy_goal] = {
+		path = "game/common/ai_navy/goals"
+	}
+	type[ai_navy_taskforce] = {
+		path = "game/common/ai_navy/taskforce"
+	}
+	type[ai_navy_fleet] = {
+		path = "game/common/ai_navy/fleet"
+	}
+}
+
+### A high-level naval AI objective (e.g. convoy escort, naval invasion support).
+### See common/ai_navy/_documentation.md for the goal/objective scoring model.
+ai_navy_goal = {
+	objective_type = enum[ai_navy_objective_type]
+
+	### If present, the goal is disabled by default and only available for these countries
+	## cardinality = 0..1
+	available_for = {
+		## cardinality = ~1..inf
+		scope[country]
+	}
+	### If present, the goal is disabled for these countries
+	## cardinality = 0..1
+	blocked_for = {
+		## cardinality = ~1..inf
+		scope[country]
+	}
+
+	min_priority = int
+	max_priority = int
+}
+
+## replace_scope = { root = country this = country }
+### A named taskforce composition the naval AI can form and assign to a mission.
+### See common/ai_navy/taskforce/_documentation.md.
+ai_navy_taskforce = {
+	## cardinality = 0..1
+	allowed = {
+		## cardinality = ~1..inf
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	ai_will_do = {
+		factor = float
+	}
+	## cardinality = 0..1
+	keep_updated = yes
+
+	mission = {
+		## cardinality = 1..inf
+		enum[ai_navy_objective_type]
+	}
+
+	### The minimum ship composition needed before this taskforce can be used
+	## cardinality = 0..1
+	min_composition = {
+		## cardinality = 0..inf
+		<unit> = {
+			amount = int
+		}
+	}
+	### The ship composition this taskforce will fill up to
+	## cardinality = 0..1
+	optimal_composition = {
+		## cardinality = 0..inf
+		<unit> = {
+			amount = int
+		}
+	}
+}
+
+### A fleet built from a set of taskforces, referenced by name and multiplicity.
+ai_navy_fleet = {
+	## cardinality = 0..1
+	required_taskforces = {
+		## cardinality = 0..inf
+		<ai_navy_taskforce> = int
+	}
+	## cardinality = 0..1
+	optional_taskforces = {
+		## cardinality = 0..inf
+		<ai_navy_taskforce> = int
+	}
+}
+
+enums = {
+	enum[ai_navy_objective_type] = {
+		naval_invasion_support
+		naval_invasion_defense
+		coast_defense
+		convoy_protection
+		convoy_raiding
+		convoy_escort
+		naval_dominance
+		naval_blockade
+		naval_patrol
+		naval_strike
+		mines_sweeping
+		mines_planting
+		training
+	}
+}
