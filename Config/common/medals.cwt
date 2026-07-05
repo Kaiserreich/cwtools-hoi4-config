@@ -1,0 +1,53 @@
+types = {
+	type[career_profile_medal] = {
+		path = "game/common/medals"
+	}
+}
+
+## replace_scope = { root = country this = country }
+career_profile_medal = {
+	name = localisation
+	description = localisation
+
+	## cardinality = 0..1
+	debug = {
+		## cardinality = 0..inf
+		scalar
+	}
+
+	frames = {
+		## cardinality = 1..inf
+		int
+	}
+
+	colors = {
+		## cardinality = 1..inf
+		{
+			bronze = {
+				## cardinality = 1..4
+				float
+			}
+			silver = {
+				## cardinality = 1..4
+				float
+			}
+			gold = {
+				## cardinality = 1..4
+				float
+			}
+		}
+	}
+
+	## cardinality = 0..1
+	bronze = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	silver = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	gold = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}

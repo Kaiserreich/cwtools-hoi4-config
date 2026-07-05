@@ -45,6 +45,7 @@ types = {
 	}
 	type[scientist_trait] = {
 		path = "game/common/scientist_trait"
+		path = "game/common/scientist_traits"
 	}
 }
 

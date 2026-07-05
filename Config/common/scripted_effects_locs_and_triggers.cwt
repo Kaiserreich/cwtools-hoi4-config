@@ -12,6 +12,7 @@ types = {
 	type[scripted_loc] = {
 		name_field = "name"
 		path = "game/common/scripted_loc"
+		path = "game/common/scripted_localisation"
 	}
 }
 
