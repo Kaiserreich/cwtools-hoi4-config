@@ -6,8 +6,10 @@ types = {
 }
 
 single_alias[division_template_clause] = {
+	### Either name or localization_key identifies the template; both are optional (e.g. taog_hq_template.txt uses localization_key alone)
+	## cardinality = 0..1
 	name = value_set[division_template_name]
-	
+
 	## cardinality = 0..1
     localization_key = localisation_inline
 	## cardinality = 0..1
