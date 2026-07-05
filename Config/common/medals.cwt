@@ -1,5 +1,6 @@
 types = {
 	type[career_profile_medal] = {
+		skip_root_key = medals
 		path = "game/common/medals"
 	}
 }
