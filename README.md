@@ -3,6 +3,25 @@ Rule files for CWTools - Hearts of Iron IV Edition
 
 CWTools is a static code analysis tool for Paradox games. It shows potential errors in the codebase, provides autofilling, handy tooltips and much more. This repo tells CWTools how to read hoi4 code and how to recognise errors.
 
+## Cargo usage
+
+Consumers should pin this repository by exact Git revision:
+
+```toml
+[dependencies]
+cwtools-hoi4-config = { git = "https://github.com/Hilde-Research-Foundation/cwtools-hoi4-config-rs.git", rev = "<exact-rules-crate-commit>" }
+```
+
+The crate exposes the HOI4 CWT rules as static in-memory sources:
+
+```rust
+for source in cwtools_hoi4_config::sources() {
+    println!("{}: {} bytes", source.path, source.content.len());
+}
+```
+
+At runtime the crate does not read, extract, cache, or write CWT rule files. Cargo checks out and builds the dependency during compilation in the normal Cargo cache and target directories.
+
 ## CWT installation for Hearts of Iron IV
 - Get VSCode [here](https://code.visualstudio.com/docs/setup/setup-overview) and open it
 - Install CWTools extension from the [marketplace](https://marketplace.visualstudio.com/items?itemName=tboby.cwtools-vscode) (or use CTRL+Shift+X to open Extensions and find CWTools there)
@@ -14,11 +33,11 @@ CWTools is a static code analysis tool for Paradox games. It shows potential err
 
 
 ## How to set up manual rules folder:
-1. Clone this repository to a filepath, e.g. D:\Git\cwtools-hoi4-config. (or copy the contents of the zip you can download)
+1. Clone this repository to a local folder or copy the contents of the zip you can download.
 2. Open VS Code, and go to File, Preferences, Settings
 2.a. To make the changes only apply to this folder (not all folders on your computer), change the tab at the top to "workspace settings"
 3. Set "cwtools.rules_version" to "manual"
-4. Set "cwtools.rules_folder" to the path above. e.g. D:\Git\cwtools-hoi4-config
+4. Set "cwtools.rules_folder" to the cloned repository folder.
 5. Re-open VS Code.
 
 ## Tips

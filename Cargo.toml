@@ -1,0 +1,29 @@
+[package]
+name = "cwtools-hoi4-config"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+build = "build.rs"
+description = "Embedded HOI4 CWT configuration sources for cwtools consumers"
+repository = "https://github.com/Hilde-Research-Foundation/cwtools-hoi4-config-rs"
+include = [
+    "Cargo.toml",
+    "build.rs",
+    "ruleset.toml",
+    "src/lib.rs",
+    "config/**/*.cwt",
+    "README.md",
+    "LICENSE*",
+]
+
+[lib]
+name = "cwtools_hoi4_config"
+path = "src/lib.rs"
+
+[dependencies]
+
+[build-dependencies]
+serde = { version = "1.0", features = ["derive"] }
+sha2 = "0.10"
+toml = "0.8"
+walkdir = "2"

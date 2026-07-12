@@ -1,0 +1,12 @@
+[ruleset]
+game = "hoi4"
+name = "cwtools-hoi4-config"
+repository = "https://github.com/Hilde-Research-Foundation/cwtools-hoi4-config-rs"
+source_directory = "config"
+virtual_prefix = "cwtools-hoi4-config/config"
+license = "MIT"
+revision = "584e57ad975bb9b2408851cf440d75d2e58b2860"
+upstream_repository = "https://github.com/NS9927/cwtools-hoi4-config"
+upstream_revision = "584e57ad975bb9b2408851cf440d75d2e58b2860"
+required_cwtools_repository = "https://github.com/MillenniumDawn/cwtools"
+required_cwtools_revision = "cb7f8c8c95dd68fcbd06d37efb87bc49fc17fbef"

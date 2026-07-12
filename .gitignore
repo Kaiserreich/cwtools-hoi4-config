@@ -1,0 +1,9 @@
+.config/
+.codex/
+.idea/
+/.worktrees/
+/target/
+/tests/
+/Cargo.lock
+testmod/
+.ionide/symbolCache.db
