@@ -11,7 +11,7 @@ include = [
     "build.rs",
     "ruleset.toml",
     "src/lib.rs",
-    "config/**/*.cwt",
+    "Config/**/*.cwt",
     "README.md",
     "LICENSE*",
 ]

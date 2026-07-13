@@ -2,7 +2,7 @@
 game = "hoi4"
 name = "cwtools-hoi4-config"
 repository = "https://github.com/Hilde-Research-Foundation/cwtools-hoi4-config-rs"
-source_directory = "config"
+source_directory = "Config"
 virtual_prefix = "cwtools-hoi4-config/config"
 license = "MIT"
 revision = "bd23ac76aa6929ab7e1b20d39345c0e7e5d1b919"
