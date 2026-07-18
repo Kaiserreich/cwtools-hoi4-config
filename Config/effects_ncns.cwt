@@ -32,6 +32,20 @@ alias[effect:set_grand_doctrine] = <grand_doctrine>
 ## scope = country
 alias[effect:set_sub_doctrine] = <subdoctrine>
 
+### Example: set_sub_doctrine = { sub_doctrine = mobile_infantry folder = land track = 1 }
+###
+### Activate the **Subdoctrine** for a country in scope, optionally specifying the folder and the track index (0-based) to assign it to.
+## scope = country
+alias[effect:set_sub_doctrine] = {
+	sub_doctrine = <subdoctrine>
+	### Optional, in case you need to specify the folder.
+	## cardinality = 0..1
+	folder = <doctrine_folder>
+	### Optional, the track index (starting at 0) among all tracks in the folder.
+	## cardinality = 0..1
+	track = int
+}
+
 ### You can mix and match track/subdoctrine/doctrine/folder triggers
 ### 
 ### Example: add_mastery = { amount = 50 track = infantry }
