@@ -83,10 +83,10 @@ alias[mathexpr:divide] = single_alias_right[mathexprnest]
 ### Divides the accumulator by a value.
 alias[mathexpr:divide] = variable_field
 
+### Sets the accumulator to the minimum of itself and the value.
 alias[mathexpr:min] = single_alias_right[mathexprnest]
 ### Sets the accumulator to the minimum of itself and the value.
 alias[mathexpr:min] = variable_field
-### Sets the accumulator to the minimum of itself and the value.
 
 ### Sets the accumulator to the maximum of itself and the value.
 alias[mathexpr:max] = single_alias_right[mathexprnest]
