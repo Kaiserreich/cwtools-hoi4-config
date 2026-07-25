@@ -192,7 +192,8 @@ alias[mathexpr:atan] = bool
 
 ### Sets the accumulator to the quadrant-aware arctangent atan2(y, x), where the accumulator is y and the value is x. The result is expressed in radians.
 ###N ote: this is computed with a numerical approximation and may be off by a few hundredths of a radian; follow with `round = yes` if you need an exact result. The degenerate case atan2(0, 0) returns roughly pi/2 rather than 0.
-alias[mathexpr:atan2] = bool
+alias[mathexpr:atan2] = single_alias_right[mathexprnest]
+alias[mathexpr:atan2] = variable_field
 
 ### Returns 1 if both the accumulator and the value are non-zero, otherwise 0.
 ### Short-circuits: the value is only evaluated when the accumulator is non-zero.
