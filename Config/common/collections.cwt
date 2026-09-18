@@ -84,6 +84,14 @@ collection = {
 	operators = {
 		## cardinality = 0..inf
 		value[arrays_compatible_with_operators]
+		## cardinality = 0..inf
+		is_core_of = scope[country]
+		## cardinality = 0..inf
+		is_core_of = enum[country_tags]
+		## cardinality = 0..inf
+		is_not_core_of = scope[country]
+		## cardinality = 0..inf
+		is_not_core_of = enum[country_tags]
 		## cardinality = 0..1
 		limit = {
 			alias_name[trigger] = alias_match_left[trigger]
