@@ -163,6 +163,7 @@ enums = {
 		game:all_countries
 		game:all_possible_countries
 		game:all_states
+		game:all_majors
 		country:faction_members
 	}
 }

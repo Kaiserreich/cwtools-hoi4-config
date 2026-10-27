@@ -38,6 +38,9 @@ alias[trigger:debug_math_expr] = {
 ### Checks if the scoped country has any unit leader captured by the target country
 ## scope = country
 alias[trigger:has_any_general_captured_by] = scope[country]
+### Checks if the scoped country has any unit leader captured by the target country
+## scope = country
+alias[trigger:has_any_general_captured_by] = enum[country_tags]
 
 
 ### Checks if the scoped unit leader (general) is captured (by any country)
@@ -62,6 +65,14 @@ alias[trigger:is_fighting_in_strategic_region] = <strategic_region>
 ## scope = character
 alias[trigger:is_deployed] = bool
 
+### Checks if scope has volunteers in target.
+### Example: has_volunteers = from
+## scope = country
+alias[trigger:has_volunteers] = scope[country]
+###C hecks if scope has volunteers in target.
+### Example: has_volunteers = from
+## scope = country
+alias[trigger:has_volunteers] = enum[country_tags]
 
 ### Evaluates a math expression and returns true when the result is non-zero.
 alias[trigger:check_expr] = {

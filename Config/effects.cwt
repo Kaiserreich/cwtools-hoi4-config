@@ -2491,6 +2491,10 @@ alias[effect:start_border_war] = {
 		### Terrain modifier factor (default value: 1.0)
 		## cardinality = 0..1
 		terrain_factor = float
+		### #a subject controlling the state fights the war itself instead of handing it to its overlord (default value: yes)
+		## default_bool = yes
+		## cardinality = 0..1
+		overlord_fights = bool
 		## cardinality = 0..1
 		modifier = float
 	}
